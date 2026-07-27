@@ -1,0 +1,113 @@
+{
+  "brand": { "name": "Woyo", "tagline": "Trouvez des professionnels de confiance pres de chez vous" },
+  "nav": {
+    "findProfessionals": "Trouver un professionnel",
+    "becomeProvider": "Devenir prestataire",
+    "login": "Connexion",
+    "register": "S'inscrire",
+    "logout": "Deconnexion",
+    "myAccount": "Mon compte"
+  },
+  "hero": {
+    "title": "Quel service recherchez-vous ?",
+    "subtitle": "Le repertoire des professionnels et entreprises de confiance en Cote d'Ivoire",
+    "professionPlaceholder": "Profession, service ou entreprise",
+    "locationPlaceholder": "Ville ou quartier",
+    "searchButton": "Rechercher",
+    "findProfessionals": "Trouver des professionnels",
+    "becomeProvider": "Devenir prestataire"
+  },
+  "categories": {
+    "title": "Categories populaires",
+    "subtitle": "Explorez les services les plus recherches",
+    "viewAll": "Voir toutes les categories"
+  },
+  "featured": {
+    "title": "Entreprises en vedette",
+    "subtitle": "Decouvrez des professionnels verifies pres de chez vous",
+    "openNow": "Ouvert maintenant",
+    "closed": "Ferme",
+    "verified": "Verifie",
+    "viewProfile": "Voir le profil",
+    "call": "Appeler",
+    "whatsapp": "WhatsApp"
+  },
+  "stats": {
+    "businesses": "Entreprises",
+    "cities": "Villes",
+    "monthlyVisitors": "Visiteurs mensuels"
+  },
+  "testimonials": {
+    "title": "Ce que disent nos utilisateurs"
+  },
+  "footer": {
+    "description": "La marketplace qui connecte les Ivoiriens aux professionnels et entreprises de confiance.",
+    "company": "Entreprise",
+    "about": "A propos",
+    "contact": "Contact",
+    "privacy": "Confidentialite",
+    "terms": "Conditions d'utilisation",
+    "blog": "Blog",
+    "careers": "Carrieres",
+    "followUs": "Suivez-nous",
+    "rights": "Tous droits reserves."
+  },
+  "search": {
+    "title": "Resultats de recherche",
+    "resultsCount": "{count} professionnels trouves",
+    "noResults": "Aucun resultat. Essayez d'elargir votre recherche.",
+    "listView": "Liste",
+    "mapView": "Carte",
+    "filters": {
+      "title": "Filtres",
+      "category": "Categorie",
+      "city": "Ville",
+      "allCategories": "Toutes les categories",
+      "allCities": "Toutes les villes",
+      "verifiedOnly": "Verifie uniquement",
+      "apply": "Appliquer"
+    }
+  },
+  "business": {
+    "openNow": "Ouvert maintenant",
+    "closedNow": "Ferme actuellement",
+    "hours": "Horaires d'ouverture",
+    "services": "Services",
+    "priceOnRequest": "Sur devis",
+    "reviews": "Avis",
+    "noReviews": "Aucun avis pour le moment.",
+    "call": "Appeler",
+    "whatsapp": "WhatsApp",
+    "website": "Site web",
+    "address": "Adresse",
+    "about": "A propos",
+    "contactForm": "Contacter cette entreprise",
+    "days": {
+      "MONDAY": "Lundi", "TUESDAY": "Mardi", "WEDNESDAY": "Mercredi", "THURSDAY": "Jeudi",
+      "FRIDAY": "Vendredi", "SATURDAY": "Samedi", "SUNDAY": "Dimanche"
+    },
+    "closedToday": "Ferme"
+  },
+  "auth": {
+    "login": { "title": "Connexion", "email": "Email", "password": "Mot de passe", "submit": "Se connecter", "googleButton": "Continuer avec Google", "noAccount": "Pas encore de compte ?", "registerLink": "S'inscrire" },
+    "register": { "title": "Creer un compte", "name": "Nom complet", "email": "Email", "phone": "Telephone (optionnel)", "password": "Mot de passe", "submit": "S'inscrire", "haveAccount": "Deja un compte ?", "loginLink": "Se connecter" }
+  },
+  "provider": {
+    "title": "Inscrivez votre entreprise sur Woyo",
+    "subtitle": "Rejoignez des milliers de professionnels et touchez de nouveaux clients.",
+    "name": "Nom de l'entreprise",
+    "category": "Categorie",
+    "city": "Ville",
+    "shortDescription": "Description courte",
+    "description": "Description complete",
+    "address": "Adresse",
+    "phone": "Telephone",
+    "whatsapp": "WhatsApp",
+    "email": "Email",
+    "website": "Site web (optionnel)",
+    "submit": "Soumettre pour verification",
+    "loginRequired": "Connectez-vous pour inscrire votre entreprise.",
+    "successTitle": "Merci !",
+    "successMessage": "Votre entreprise a ete soumise et sera verifiee par notre equipe sous peu."
+  }
+}

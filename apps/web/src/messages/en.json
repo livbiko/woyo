@@ -1,0 +1,113 @@
+{
+  "brand": { "name": "Woyo", "tagline": "Find trusted professionals near you" },
+  "nav": {
+    "findProfessionals": "Find Professionals",
+    "becomeProvider": "Become a Provider",
+    "login": "Login",
+    "register": "Sign up",
+    "logout": "Log out",
+    "myAccount": "My account"
+  },
+  "hero": {
+    "title": "What service are you looking for?",
+    "subtitle": "The directory of trusted professionals and businesses in Cote d'Ivoire",
+    "professionPlaceholder": "Profession, service or business",
+    "locationPlaceholder": "City or neighborhood",
+    "searchButton": "Search",
+    "findProfessionals": "Find Professionals",
+    "becomeProvider": "Become a Provider"
+  },
+  "categories": {
+    "title": "Popular Categories",
+    "subtitle": "Explore the most requested services",
+    "viewAll": "View all categories"
+  },
+  "featured": {
+    "title": "Featured Businesses",
+    "subtitle": "Discover verified professionals near you",
+    "openNow": "Open now",
+    "closed": "Closed",
+    "verified": "Verified",
+    "viewProfile": "View Profile",
+    "call": "Call",
+    "whatsapp": "WhatsApp"
+  },
+  "stats": {
+    "businesses": "Businesses",
+    "cities": "Cities",
+    "monthlyVisitors": "Monthly Visitors"
+  },
+  "testimonials": {
+    "title": "What our users say"
+  },
+  "footer": {
+    "description": "The marketplace connecting Ivorians with trusted professionals and businesses.",
+    "company": "Company",
+    "about": "About",
+    "contact": "Contact",
+    "privacy": "Privacy",
+    "terms": "Terms",
+    "blog": "Blog",
+    "careers": "Careers",
+    "followUs": "Follow us",
+    "rights": "All rights reserved."
+  },
+  "search": {
+    "title": "Search results",
+    "resultsCount": "{count} professionals found",
+    "noResults": "No results. Try broadening your search.",
+    "listView": "List",
+    "mapView": "Map",
+    "filters": {
+      "title": "Filters",
+      "category": "Category",
+      "city": "City",
+      "allCategories": "All categories",
+      "allCities": "All cities",
+      "verifiedOnly": "Verified only",
+      "apply": "Apply"
+    }
+  },
+  "business": {
+    "openNow": "Open now",
+    "closedNow": "Currently closed",
+    "hours": "Opening hours",
+    "services": "Services",
+    "priceOnRequest": "On request",
+    "reviews": "Reviews",
+    "noReviews": "No reviews yet.",
+    "call": "Call",
+    "whatsapp": "WhatsApp",
+    "website": "Website",
+    "address": "Address",
+    "about": "About",
+    "contactForm": "Contact this business",
+    "days": {
+      "MONDAY": "Monday", "TUESDAY": "Tuesday", "WEDNESDAY": "Wednesday", "THURSDAY": "Thursday",
+      "FRIDAY": "Friday", "SATURDAY": "Saturday", "SUNDAY": "Sunday"
+    },
+    "closedToday": "Closed"
+  },
+  "auth": {
+    "login": { "title": "Login", "email": "Email", "password": "Password", "submit": "Log in", "googleButton": "Continue with Google", "noAccount": "Don't have an account?", "registerLink": "Sign up" },
+    "register": { "title": "Create an account", "name": "Full name", "email": "Email", "phone": "Phone (optional)", "password": "Password", "submit": "Sign up", "haveAccount": "Already have an account?", "loginLink": "Log in" }
+  },
+  "provider": {
+    "title": "List your business on Woyo",
+    "subtitle": "Join thousands of professionals and reach new customers.",
+    "name": "Business name",
+    "category": "Category",
+    "city": "City",
+    "shortDescription": "Short description",
+    "description": "Full description",
+    "address": "Address",
+    "phone": "Phone",
+    "whatsapp": "WhatsApp",
+    "email": "Email",
+    "website": "Website (optional)",
+    "submit": "Submit for review",
+    "loginRequired": "Log in to list your business.",
+    "successTitle": "Thank you!",
+    "successMessage": "Your business has been submitted and will be reviewed by our team shortly."
+  }
+}

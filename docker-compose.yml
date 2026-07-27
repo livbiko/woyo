@@ -1,0 +1,50 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: woyo
+      POSTGRES_PASSWORD: changeme
+      POSTGRES_DB: woyo
+    ports:
+      - '5433:5432'
+    volumes:
+      - woyo_postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U woyo']
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  api:
+    build:
+      context: .
+      dockerfile: apps/api/Dockerfile
+    environment:
+      DATABASE_URL: 'postgresql://woyo:changeme@postgres:5432/woyo'
+      JWT_SECRET: 'dev-only-change-in-production'
+      PORT: 4001
+      WEB_URL: 'http://localhost:3000'
+      ALLOWED_ORIGINS: 'http://localhost:3000'
+    ports:
+      - '4001:4001'
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  web:
+    build:
+      context: .
+      dockerfile: apps/web/Dockerfile
+    environment:
+      # Browser-facing (baked in at build time, falls back to this value already)
+      NEXT_PUBLIC_API_URL: 'http://localhost:4001/api'
+      # Server-side (Server Components running inside this container) -- must
+      # use the Docker service name, not localhost, or SSR fetches fail.
+      API_URL: 'http://api:4001/api'
+    ports:
+      - '3000:3000'
+    depends_on:
+      - api
+
+volumes:
+  woyo_postgres_data:

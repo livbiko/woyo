@@ -1,0 +1,178 @@
+// Woyo -- Phase 1 schema.
+// Deliberately excludes Phase 2+ domains (subscriptions/invoices, messaging,
+// appointment booking, ad management, admin audit log) -- those get their
+// own migrations when those phases are scoped, not stubbed out now.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum UserRole {
+  USER
+  PROVIDER
+  ADMIN
+}
+
+enum BusinessStatus {
+  PENDING
+  APPROVED
+  REJECTED
+}
+
+enum DayOfWeek {
+  MONDAY
+  TUESDAY
+  WEDNESDAY
+  THURSDAY
+  FRIDAY
+  SATURDAY
+  SUNDAY
+}
+
+model User {
+  id           String   @id @default(uuid())
+  email        String   @unique
+  passwordHash String? // null for OAuth-only accounts
+  googleId     String?  @unique
+  name         String
+  phone        String?
+  role         UserRole @default(USER)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  businesses Business[] @relation("BusinessOwner")
+  reviews    Review[]
+  favorites  Favorite[]
+
+  @@map("users")
+}
+
+model Category {
+  id            String @id @default(uuid())
+  slug          String @unique
+  nameFr        String
+  nameEn        String
+  icon          String // lucide-react icon name
+  featuredOrder Int? // non-null = shown in homepage "Popular Categories", lower = first
+
+  businesses Business[]
+
+  @@map("categories")
+}
+
+model City {
+  id        String  @id @default(uuid())
+  slug      String  @unique
+  nameFr    String
+  nameEn    String
+  region    String?
+  latitude  Float
+  longitude Float
+
+  businesses Business[]
+
+  @@map("cities")
+}
+
+model Business {
+  id               String         @id @default(uuid())
+  slug             String         @unique
+  name             String
+  ownerId          String?
+  owner            User?          @relation("BusinessOwner", fields: [ownerId], references: [id])
+  categoryId       String
+  category         Category       @relation(fields: [categoryId], references: [id])
+  cityId           String
+  city             City           @relation(fields: [cityId], references: [id])
+  logoUrl          String?
+  shortDescription String?
+  description      String?
+  address          String?
+  latitude         Float?
+  longitude        Float?
+  phone            String?
+  whatsapp         String?
+  email            String?
+  website          String?
+  facebookUrl      String?
+  instagramUrl     String?
+  isVerified       Boolean        @default(false)
+  status           BusinessStatus @default(PENDING)
+  createdAt        DateTime       @default(now())
+  updatedAt        DateTime       @updatedAt
+
+  images        BusinessImage[]
+  openingHours  OpeningHour[]
+  services      Service[]
+  reviews       Review[]
+  favorites     Favorite[]
+
+  @@index([categoryId])
+  @@index([cityId])
+  @@index([status])
+  @@map("businesses")
+}
+
+model BusinessImage {
+  id         String   @id @default(uuid())
+  businessId String
+  business   Business @relation(fields: [businessId], references: [id], onDelete: Cascade)
+  url        String
+  order      Int      @default(0)
+
+  @@map("business_images")
+}
+
+model OpeningHour {
+  id         String    @id @default(uuid())
+  businessId String
+  business   Business  @relation(fields: [businessId], references: [id], onDelete: Cascade)
+  day        DayOfWeek
+  opensAt    String? // "08:00", null = closed that day
+  closesAt   String?
+
+  @@unique([businessId, day])
+  @@map("opening_hours")
+}
+
+model Service {
+  id          String   @id @default(uuid())
+  businessId  String
+  business    Business @relation(fields: [businessId], references: [id], onDelete: Cascade)
+  name        String
+  description String?
+  priceFrom   Int? // XOF, null = "on request"
+
+  @@map("services")
+}
+
+model Review {
+  id         String   @id @default(uuid())
+  businessId String
+  business   Business @relation(fields: [businessId], references: [id], onDelete: Cascade)
+  userId     String
+  user       User     @relation(fields: [userId], references: [id])
+  rating     Int // 1-5
+  comment    String?
+  createdAt  DateTime @default(now())
+
+  @@unique([businessId, userId])
+  @@map("reviews")
+}
+
+model Favorite {
+  id         String   @id @default(uuid())
+  userId     String
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  businessId String
+  business   Business @relation(fields: [businessId], references: [id], onDelete: Cascade)
+  createdAt  DateTime @default(now())
+
+  @@unique([userId, businessId])
+  @@map("favorites")
+}
