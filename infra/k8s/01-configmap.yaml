@@ -1,0 +1,18 @@
+# Non-sensitive runtime config only. DATABASE_URL/JWT_SECRET go in the
+# Secret instead, created via 02-create-secret.ps1 -- same split used by
+# nouvellesdupays/tekeche-api.
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: woyo-config
+  namespace: woyo
+data:
+  PORT: "4001"
+  NODE_ENV: "production"
+  POSTGRES_USER: "woyo"
+  POSTGRES_DB: "woyo"
+  WEB_URL: "https://225woyo.com"
+  ALLOWED_ORIGINS: "https://225woyo.com,https://www.225woyo.com"
+  # Server-side (Server Components inside the web pod) reach the api via
+  # the in-cluster Service, not the public domain -- see apps/web/src/lib/api.ts.
+  API_URL: "http://woyo-api:4001/api"

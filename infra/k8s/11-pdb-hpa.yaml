@@ -1,0 +1,63 @@
+# Requires metrics-server (already installed cluster-wide since tekeche-api's
+# own HPA -- not duplicated here).
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: woyo-api-pdb
+  namespace: woyo
+spec:
+  minAvailable: 1
+  selector:
+    matchLabels:
+      app: woyo-api
+---
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: woyo-api-hpa
+  namespace: woyo
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: woyo-api
+  minReplicas: 2
+  maxReplicas: 4
+  metrics:
+    - type: Resource
+      resource:
+        name: cpu
+        target:
+          type: Utilization
+          averageUtilization: 70
+---
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: woyo-web-pdb
+  namespace: woyo
+spec:
+  minAvailable: 1
+  selector:
+    matchLabels:
+      app: woyo-web
+---
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: woyo-web-hpa
+  namespace: woyo
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: woyo-web
+  minReplicas: 2
+  maxReplicas: 4
+  metrics:
+    - type: Resource
+      resource:
+        name: cpu
+        target:
+          type: Utilization
+          averageUtilization: 70

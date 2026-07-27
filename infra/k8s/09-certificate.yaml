@@ -1,0 +1,17 @@
+# Real cert, auto-renewed by cert-manager (already installed cluster-wide
+# from the NouvellesDuPays TLS automation work -- no reinstall needed here).
+# HTTP-01 challenge via the same letsencrypt-prod ClusterIssuer. Targets the
+# secretName the Ingress (08-ingress.yaml) already references.
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: woyo-tls
+  namespace: woyo
+spec:
+  secretName: woyo-tls
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+  dnsNames:
+    - 225woyo.com
+    - www.225woyo.com

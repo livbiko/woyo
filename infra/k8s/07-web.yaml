@@ -1,0 +1,75 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: woyo-web
+  namespace: woyo
+  labels:
+    app: woyo-web
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: woyo-web
+  template:
+    metadata:
+      labels:
+        app: woyo-web
+    spec:
+      imagePullSecrets:
+        - name: ocir-pull-secret
+      containers:
+        - name: web
+          # Built with NEXT_PUBLIC_API_URL=https://225woyo.com/api baked in
+          # at image-build time (Kaniko --build-arg) -- see apps/web/Dockerfile.
+          image: lhr.ocir.io/lr14abpkfrxj/woyo-web:latest
+          ports:
+            - containerPort: 3000
+          env:
+            # Next.js standalone output binds to $HOSTNAME if set, and k8s
+            # auto-sets HOSTNAME to the pod name -- without this it only
+            # accepts connections addressed to that pod name, not loopback.
+            - name: HOSTNAME
+              value: "0.0.0.0"
+            # Server Components running inside this pod reach the api via
+            # the in-cluster Service name, not the public domain.
+            - name: API_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: woyo-config
+                  key: API_URL
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "128Mi"
+            limits:
+              cpu: "500m"
+              memory: "512Mi"
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 3000
+            initialDelaySeconds: 15
+            periodSeconds: 15
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 3000
+            initialDelaySeconds: 10
+            periodSeconds: 10
+          securityContext:
+            runAsNonRoot: true
+            runAsUser: 1000
+            allowPrivilegeEscalation: false
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: woyo-web
+  namespace: woyo
+spec:
+  type: ClusterIP
+  selector:
+    app: woyo-web
+  ports:
+    - port: 3000
+      targetPort: 3000

@@ -3,9 +3,14 @@
 # build context is scoped to this directory, not the repo root.
 FROM node:20-alpine AS build
 WORKDIR /app
-COPY apps/web/package.json apps/web/package-lock.json* ./
+COPY package.json package-lock.json* ./
 RUN npm ci
-COPY apps/web .
+COPY . .
+# NEXT_PUBLIC_* vars are inlined into the client bundle at BUILD time, not
+# read at runtime -- must be passed as a Kaniko --build-arg, matching the
+# fix already applied on NouvellesDuPays's web Dockerfile for the same reason.
+ARG NEXT_PUBLIC_API_URL
+ENV NEXT_PUBLIC_API_URL=${NEXT_PUBLIC_API_URL}
 RUN npm run build
 
 FROM node:20-alpine AS runtime

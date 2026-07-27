@@ -1,0 +1,34 @@
+# apps/web is standalone (own lockfile, not a workspace member), so its
+# Kaniko context is scoped to that subdirectory via --context-sub-path,
+# same pattern as NouvellesDuPays's web build. NEXT_PUBLIC_API_URL is
+# passed as a build-arg since Next.js inlines it into the client bundle at
+# build time (see apps/web/Dockerfile).
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: kaniko-build-woyo-web
+  namespace: woyo
+spec:
+  backoffLimit: 1
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: kaniko
+          image: gcr.io/kaniko-project/executor:latest
+          args:
+            - "--context=git://github.com/livbiko/woyo.git#refs/heads/master"
+            - "--context-sub-path=apps/web"
+            - "--dockerfile=Dockerfile"
+            - "--destination=lhr.ocir.io/lr14abpkfrxj/woyo-web:latest"
+            - "--build-arg=NEXT_PUBLIC_API_URL=https://225woyo.com/api"
+          volumeMounts:
+            - name: docker-config
+              mountPath: /kaniko/.docker
+      volumes:
+        - name: docker-config
+          secret:
+            secretName: ocir-pull-secret
+            items:
+              - key: .dockerconfigjson
+                path: config.json

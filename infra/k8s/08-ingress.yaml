@@ -1,0 +1,51 @@
+# Reuses the cluster's existing shared ingress-nginx controller (also
+# serving tekeche.com/api.tekeche.com/livbiko.com/nouvellesdupays.com) --
+# same controller, new Ingress resource/hostname. DNS for 225woyo.com
+# points at nouvellesdupays-nlb's public IP (132.145.79.46), NOT
+# tekeche-nlb -- tekeche-nlb's backend sets mix OKE ingress-nginx NodePorts
+# with standalone on-prem Tekeche VMs (is-backup flags), so pointing a new
+# hostname at it would risk some traffic landing on a Tekeche VM that's
+# never heard of 225woyo.com. nouvellesdupays-nlb's backend sets are pure
+# OKE NodePorts only -- safe to share.
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: woyo
+  namespace: woyo
+  annotations:
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+spec:
+  ingressClassName: nginx
+  tls:
+    - hosts:
+        - 225woyo.com
+        - www.225woyo.com
+      secretName: woyo-tls
+  rules:
+    - host: 225woyo.com
+      http:
+        paths:
+          - path: /api
+            pathType: Prefix
+            backend:
+              service:
+                name: woyo-api
+                port:
+                  number: 4001
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: woyo-web
+                port:
+                  number: 3000
+    - host: www.225woyo.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: woyo-web
+                port:
+                  number: 3000
