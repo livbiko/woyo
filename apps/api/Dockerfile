@@ -6,6 +6,11 @@
 # directories to find it from /app/apps/api.
 FROM node:20-alpine AS build
 WORKDIR /app
+# Prisma's query/schema engine binaries need libssl -- Alpine's node image
+# doesn't ship it, and without it `prisma migrate deploy` fails at runtime
+# with "Could not parse schema engine response" (a real crash, not just the
+# accompanying warning -- `prisma generate` alone tolerates its absence).
+RUN apk add --no-cache openssl
 COPY package.json package-lock.json* ./
 COPY apps/api/package.json apps/api/package.json
 COPY packages/shared/package.json packages/shared/package.json
@@ -18,6 +23,7 @@ RUN npm run build --workspace=apps/api
 FROM node:20-alpine AS runtime
 WORKDIR /app
 ENV NODE_ENV=production
+RUN apk add --no-cache openssl
 COPY --from=build /app/node_modules ./node_modules
 COPY --from=build /app/apps/api/dist ./apps/api/dist
 COPY --from=build /app/apps/api/prisma ./apps/api/prisma
