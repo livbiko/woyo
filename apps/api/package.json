@@ -3,17 +3,18 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "build": "nest build",
+    "build": "nest build && npm run build:seed",
+    "build:seed": "tsc prisma/seed.ts --outDir prisma-dist --module commonjs --target es2021 --esModuleInterop --skipLibCheck --resolveJsonModule",
     "start": "node dist/main",
     "start:dev": "nest start --watch",
     "prisma:generate": "prisma generate",
     "prisma:migrate": "prisma migrate deploy",
     "prisma:migrate:dev": "prisma migrate dev",
-    "prisma:seed": "ts-node prisma/seed.ts",
+    "prisma:seed": "node prisma-dist/seed.js",
     "test": "node --require ts-node/register --test test/**/*.test.ts"
   },
   "prisma": {
-    "seed": "ts-node prisma/seed.ts"
+    "seed": "node prisma-dist/seed.js"
   },
   "dependencies": {
     "@nestjs/common": "^10.4.0",

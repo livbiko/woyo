@@ -17,7 +17,7 @@ spec:
       containers:
         - name: migrate
           image: lhr.ocir.io/lr14abpkfrxj/woyo-api:latest
-          command: ["sh", "-c", "npx prisma migrate deploy && npx ts-node prisma/seed.ts"]
+          command: ["sh", "-c", "npx prisma migrate deploy && node prisma-dist/seed.js"]
           env:
             - name: DATABASE_URL
               valueFrom:

@@ -26,6 +26,12 @@ ENV NODE_ENV=production
 RUN apk add --no-cache openssl
 COPY --from=build /app/node_modules ./node_modules
 COPY --from=build /app/apps/api/dist ./apps/api/dist
+# prisma-dist is seed.ts pre-compiled to plain JS at build time (see
+# package.json's build:seed script) -- ts-node in the runtime image proved
+# unreliable (needs tsconfig.json, which isn't copied here, and ended up
+# falling through to Node's native loader with "Unknown file extension
+# .ts"). Running compiled JS with plain `node` sidesteps that entirely.
+COPY --from=build /app/apps/api/prisma-dist ./apps/api/prisma-dist
 COPY --from=build /app/apps/api/prisma ./apps/api/prisma
 COPY --from=build /app/apps/api/package.json ./apps/api/package.json
 WORKDIR /app/apps/api
