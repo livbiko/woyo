@@ -28,6 +28,26 @@ spec:
             # accepts connections addressed to that pod name, not loopback.
             - name: HOSTNAME
               value: "0.0.0.0"
+            # Driver registration form -> Brevo transactional email. Reuses
+            # the same BREVO_API_KEY already proven working for Tekeche's
+            # OTP SMS delivery (Brevo API keys are account-wide across
+            # email/SMS), copied into this project's own secret rather than
+            # cross-referencing Tekeche's -- see 12-notification-secret.yaml.
+            - name: BREVO_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: woyo-notification-secrets
+                  key: BREVO_API_KEY
+            - name: DRIVER_NOTIFICATION_EMAIL
+              valueFrom:
+                secretKeyRef:
+                  name: woyo-notification-secrets
+                  key: DRIVER_NOTIFICATION_EMAIL
+            - name: NOTIFICATION_FROM_EMAIL
+              valueFrom:
+                secretKeyRef:
+                  name: woyo-notification-secrets
+                  key: NOTIFICATION_FROM_EMAIL
           resources:
             requests:
               cpu: "100m"

@@ -52,6 +52,23 @@
     "req3": "Android or iOS smartphone",
     "req4": "Clean criminal record"
   },
+  "register": {
+    "title": "Driver registration",
+    "subtitle": "Leave us your details and our team will follow up with next steps.",
+    "name": "Full name",
+    "phone": "Phone",
+    "email": "Email (optional)",
+    "city": "City",
+    "vehicleType": "Vehicle type",
+    "vehicleTypePlaceholder": "E.g. sedan, SUV, van",
+    "hasLicense": "I hold a valid driver's license",
+    "message": "Message (optional)",
+    "submit": "Submit my application",
+    "submitting": "Submitting...",
+    "successTitle": "Thank you!",
+    "successMessage": "Your application has been sent. Our team will get back to you soon.",
+    "errorMessage": "Something went wrong. Please try again."
+  },
   "safety": {
     "heroTitle": "Safety comes first",
     "heroSubtitle": "Every Woyo trip is designed to protect riders and drivers alike.",

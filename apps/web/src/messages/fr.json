@@ -52,6 +52,23 @@
     "req3": "Smartphone Android ou iOS",
     "req4": "Casier judiciaire vierge"
   },
+  "register": {
+    "title": "Inscription chauffeur",
+    "subtitle": "Laissez-nous vos coordonnees, notre equipe vous recontactera pour la suite.",
+    "name": "Nom complet",
+    "phone": "Telephone",
+    "email": "Email (optionnel)",
+    "city": "Ville",
+    "vehicleType": "Type de vehicule",
+    "vehicleTypePlaceholder": "Ex : berline, SUV, utilitaire",
+    "hasLicense": "Je possede un permis de conduire valide",
+    "message": "Message (optionnel)",
+    "submit": "Envoyer ma candidature",
+    "submitting": "Envoi en cours...",
+    "successTitle": "Merci !",
+    "successMessage": "Votre candidature a bien ete envoyee. Notre equipe vous recontactera bientot.",
+    "errorMessage": "Une erreur est survenue. Veuillez reessayer."
+  },
   "safety": {
     "heroTitle": "La securite avant tout",
     "heroSubtitle": "Chaque trajet Woyo est pense pour proteger passagers et chauffeurs.",

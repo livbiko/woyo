@@ -13,7 +13,7 @@ export function Hero() {
   return (
     <section className="relative overflow-hidden bg-ink text-white">
       <Image
-        src="https://images.unsplash.com/photo-1636935529049-2078e9ee3e6c?w=1920&q=80"
+        src="https://images.unsplash.com/photo-1773402992044-921b62a690f3?w=1920&q=80"
         alt=""
         fill
         priority

@@ -4,6 +4,7 @@ import { getTranslations } from 'next-intl/server';
 import { UserPlus, ShieldCheck, Navigation as NavigationIcon, CheckCircle2 } from 'lucide-react';
 import { PageHero } from '@/components/PageHero';
 import { Button } from '@/components/ui/button';
+import { Link } from '@/i18n/navigation';
 
 export const metadata: Metadata = { title: 'Chauffeur' };
 
@@ -23,7 +24,7 @@ export default async function DrivePage() {
       <PageHero
         title={t('heroTitle')}
         subtitle={t('heroSubtitle')}
-        image="https://images.unsplash.com/photo-1473655587843-eda8944061e8?w=1920&q=80"
+        image="https://images.unsplash.com/photo-1562101074-ddc04071bdc8?w=1920&q=80"
       />
 
       <section className="bg-gray-50 py-16">
@@ -47,7 +48,7 @@ export default async function DrivePage() {
         <div className="grid grid-cols-1 overflow-hidden rounded-2xl bg-red text-white sm:grid-cols-2">
           <div className="relative h-64 sm:h-auto">
             <Image
-              src="https://images.unsplash.com/photo-1762095996527-126e49ef9d72?w=1200&q=80"
+              src="https://images.unsplash.com/photo-1616805111699-0e52fa62f779?w=1200&q=80"
               alt=""
               fill
               className="object-cover"
@@ -72,9 +73,11 @@ export default async function DrivePage() {
           ))}
         </ul>
         <div className="mt-10 text-center">
-          <Button variant="primary" size="lg" disabled>
-            {t('cta')}
-          </Button>
+          <Link href="/drive/register">
+            <Button variant="primary" size="lg">
+              {t('cta')}
+            </Button>
+          </Link>
         </div>
       </section>
     </>

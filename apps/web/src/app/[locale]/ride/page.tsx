@@ -14,7 +14,7 @@ export default async function RidePage() {
       <PageHero
         title={t('heroTitle')}
         subtitle={t('heroSubtitle')}
-        image="https://images.unsplash.com/photo-1506719040632-7d586470c936?w=1920&q=80"
+        image="https://images.unsplash.com/photo-1744413265148-0932ccf64384?w=1920&q=80"
       />
 
       <section className="mx-auto max-w-3xl px-4 py-16 text-center sm:px-6 lg:px-8">
