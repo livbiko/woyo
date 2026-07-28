@@ -26,6 +26,9 @@ export const metadata: Metadata = {
     siteName: 'Woyo',
     locale: 'fr_CI',
   },
+  icons: {
+    icon: '/favicon.svg',
+  },
 };
 
 export function generateStaticParams() {

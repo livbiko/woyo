@@ -1,5 +1,9 @@
 # Multi-stage build -- Kaniko build context is the repo root (same convention
 # as the nouvellesdupays/tekeche projects), hence the apps/api/... paths below.
+# NOTE: npm workspaces hoist all deps to the root node_modules -- apps/api's
+# own node_modules is empty (confirmed locally), so only the root copy is
+# needed in the runtime stage. Node's module resolution walks up parent
+# directories to find it from /app/apps/api.
 FROM node:20-alpine AS build
 WORKDIR /app
 COPY package.json package-lock.json* ./
@@ -15,7 +19,6 @@ FROM node:20-alpine AS runtime
 WORKDIR /app
 ENV NODE_ENV=production
 COPY --from=build /app/node_modules ./node_modules
-COPY --from=build /app/apps/api/node_modules ./apps/api/node_modules
 COPY --from=build /app/apps/api/dist ./apps/api/dist
 COPY --from=build /app/apps/api/prisma ./apps/api/prisma
 COPY --from=build /app/apps/api/package.json ./apps/api/package.json
