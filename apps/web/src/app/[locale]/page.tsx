@@ -1,17 +1,17 @@
 import { Hero } from '@/components/home/Hero';
-import { PopularCategories } from '@/components/home/PopularCategories';
-import { FeaturedBusinesses } from '@/components/home/FeaturedBusinesses';
-import { StatsSection } from '@/components/home/StatsSection';
-import { Testimonials } from '@/components/home/Testimonials';
+import { HowItWorks } from '@/components/home/HowItWorks';
+import { CitiesSection } from '@/components/home/CitiesSection';
+import { SafetyTeaser } from '@/components/home/SafetyTeaser';
+import { DownloadSection } from '@/components/home/DownloadSection';
 
 export default function HomePage() {
   return (
     <>
       <Hero />
-      <PopularCategories />
-      <FeaturedBusinesses />
-      <StatsSection />
-      <Testimonials />
+      <HowItWorks />
+      <CitiesSection />
+      <SafetyTeaser />
+      <DownloadSection />
     </>
   );
 }

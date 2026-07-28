@@ -4,31 +4,27 @@ import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
-import { AuthProvider } from '@/lib/auth-context';
-import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import '../globals.css';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter', display: 'swap' });
 
-const SITE_URL = 'https://woyo.ci';
+const SITE_URL = 'https://225woyo.com';
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: 'Woyo — Trouvez des professionnels de confiance en Cote d\'Ivoire',
+    default: "Woyo — Chauffeurs independants, courses partagees en Cote d'Ivoire",
     template: '%s | Woyo',
   },
   description:
-    "Woyo connecte les Ivoiriens aux meilleurs professionnels et entreprises locales : electriciens, medecins, restaurants, avocats et bien plus.",
+    "Woyo connecte les passagers a des chauffeurs independants partout en Cote d'Ivoire. A Abidjan, toute la gamme Tekeche. Ailleurs, des courses partagees a tarif fixe.",
   openGraph: {
     type: 'website',
     siteName: 'Woyo',
     locale: 'fr_CI',
   },
-  icons: {
-    icon: '/favicon.svg',
-  },
+  icons: { icon: '/favicon.svg' },
 };
 
 export function generateStaticParams() {
@@ -51,11 +47,8 @@ export default async function LocaleLayout({
     <html lang={locale} className={inter.variable}>
       <body className="font-sans antialiased">
         <NextIntlClientProvider messages={messages}>
-          <AuthProvider>
-            <Header />
-            <main className="min-h-screen">{children}</main>
-            <Footer />
-          </AuthProvider>
+          <main className="min-h-screen">{children}</main>
+          <Footer />
         </NextIntlClientProvider>
       </body>
     </html>

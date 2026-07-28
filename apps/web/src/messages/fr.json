@@ -1,113 +1,91 @@
 {
-  "brand": { "name": "Woyo", "tagline": "Trouvez des professionnels de confiance pres de chez vous" },
-  "nav": {
-    "findProfessionals": "Trouver un professionnel",
-    "becomeProvider": "Devenir prestataire",
-    "login": "Connexion",
-    "register": "S'inscrire",
-    "logout": "Deconnexion",
-    "myAccount": "Mon compte"
+  "nav": { "ride": "Passager", "drive": "Chauffeur", "about": "A propos" },
+  "home": {
+    "heroTitle": "Allez ou vous voulez",
+    "heroSubtitle": "Demandez une course. Montez. Roulez.",
+    "riderCta": "Obtenir une course",
+    "driverCta": "Conduire et gagner de l'argent",
+    "howItWorksTitle": "Comment ca marche",
+    "step1Title": "Ouvrez l'application",
+    "step1Body": "Indiquez votre destination et voyez le tarif avant de partir.",
+    "step2Title": "Trouvez un chauffeur",
+    "step2Body": "Un chauffeur independant pres de vous accepte votre course.",
+    "step3Title": "Roulez en toute confiance",
+    "step3Body": "Suivez votre trajet en temps reel jusqu'a destination.",
+    "citiesTitle": "Disponible en Cote d'Ivoire",
+    "citiesBody": "A Abidjan, profitez de toute la gamme Tekeche (course, programmee, livraison, XL). Ailleurs dans le pays, Woyo propose des courses partagees a tarif fixe, avec des chauffeurs qui vont deja dans votre direction.",
+    "safetyTitle": "Votre securite, notre priorite",
+    "safetyBody": "Chauffeurs verifies, suivi de trajet en temps reel, assistance disponible a tout moment.",
+    "downloadTitle": "Telechargez l'application Woyo",
+    "downloadBody": "Bientot disponible sur l'App Store et Google Play.",
+    "comingSoon": "Bientot disponible"
   },
-  "hero": {
-    "title": "Quel service recherchez-vous ?",
-    "subtitle": "Le repertoire des professionnels et entreprises de confiance en Cote d'Ivoire",
-    "professionPlaceholder": "Profession, service ou entreprise",
-    "locationPlaceholder": "Ville ou quartier",
-    "searchButton": "Rechercher",
-    "findProfessionals": "Trouver des professionnels",
-    "becomeProvider": "Devenir prestataire"
+  "ride": {
+    "heroTitle": "Une course pour chaque trajet",
+    "heroSubtitle": "A Abidjan comme ailleurs, Woyo vous emmene la ou vous allez.",
+    "cta": "Obtenir l'application",
+    "abidjanTitle": "A Abidjan",
+    "abidjanBody": "Toute la gamme Tekeche : course classique, course programmee, livraison, vehicules XL.",
+    "elsewhereTitle": "Partout ailleurs en Cote d'Ivoire",
+    "elsewhereBody": "Des courses partagees a tarif fixe de 200 FCFA. Woyo vous met en relation avec un chauffeur deja en route dans votre direction, jusqu'a 4 passagers par vehicule.",
+    "howTitle": "Comment ca marche",
+    "how1": "Indiquez votre depart et votre destination",
+    "how2": "Woyo trouve un chauffeur allant dans votre direction",
+    "how3": "Montez et payez le tarif fixe",
+    "faresTitle": "Tarifs transparents",
+    "faresBody": "200 FCFA par passager pour une course partagee Woyo, connu avant de monter."
   },
-  "categories": {
-    "title": "Categories populaires",
-    "subtitle": "Explorez les services les plus recherches",
-    "viewAll": "Voir toutes les categories"
+  "drive": {
+    "heroTitle": "Conduisez. Gagnez. Independant.",
+    "heroSubtitle": "Devenez chauffeur Woyo et acceptez des courses quand vous le souhaitez.",
+    "cta": "Devenir chauffeur",
+    "howTitle": "Comment ca marche",
+    "how1Title": "Inscrivez-vous",
+    "how1Body": "Creez votre profil chauffeur et telechargez vos documents (permis, carte grise, assurance).",
+    "how2Title": "Verification KYC",
+    "how2Body": "Notre equipe verifie vos documents pour garantir la securite de tous.",
+    "how3Title": "Acceptez des courses",
+    "how3Body": "Recevez des demandes de course, naviguez avec le GPS integre, et encaissez vos gains.",
+    "earnTitle": "Gagnez a votre rythme",
+    "earnBody": "Choisissez vos horaires. Chaque course partagee Woyo rapporte un tarif fixe, et vous pouvez transporter jusqu'a 4 passagers en meme temps.",
+    "requirementsTitle": "Ce qu'il vous faut",
+    "req1": "Permis de conduire valide",
+    "req2": "Vehicule en bon etat avec carte grise",
+    "req3": "Smartphone Android ou iOS",
+    "req4": "Casier judiciaire vierge"
   },
-  "featured": {
-    "title": "Entreprises en vedette",
-    "subtitle": "Decouvrez des professionnels verifies pres de chez vous",
-    "openNow": "Ouvert maintenant",
-    "closed": "Ferme",
-    "verified": "Verifie",
-    "viewProfile": "Voir le profil",
-    "call": "Appeler",
-    "whatsapp": "WhatsApp"
+  "safety": {
+    "heroTitle": "La securite avant tout",
+    "heroSubtitle": "Chaque trajet Woyo est pense pour proteger passagers et chauffeurs.",
+    "item1Title": "Chauffeurs verifies",
+    "item1Body": "Chaque chauffeur passe une verification d'identite et de documents (KYC) avant d'accepter sa premiere course.",
+    "item2Title": "Suivi de trajet",
+    "item2Body": "La position du vehicule est suivie pendant toute la duree de la course.",
+    "item3Title": "Assistance disponible",
+    "item3Body": "Une equipe est disponible pour vous accompagner en cas de probleme pendant ou apres une course."
   },
-  "stats": {
-    "businesses": "Entreprises",
-    "cities": "Villes",
-    "monthlyVisitors": "Visiteurs mensuels"
+  "about": {
+    "heroTitle": "A propos de Woyo",
+    "body1": "Woyo est une marque de Livbiko, concue pour rendre la mobilite accessible partout en Cote d'Ivoire, pas seulement a Abidjan.",
+    "body2": "A Abidjan, Woyo s'appuie sur la meme flotte de chauffeurs independants que Tekeche. Ailleurs dans le pays, Woyo propose un modele de course partagee a tarif fixe, pense pour les trajets du quotidien.",
+    "body3": "Notre objectif : connecter chauffeurs independants et passagers, simplement et surement."
   },
-  "testimonials": {
-    "title": "Ce que disent nos utilisateurs"
+  "legal": {
+    "title": "Mentions legales",
+    "body": "Pour la politique de confidentialite complete de l'application Woyo, consultez la page dediee.",
+    "privacyLink": "Politique de confidentialite"
   },
   "footer": {
-    "description": "La marketplace qui connecte les Ivoiriens aux professionnels et entreprises de confiance.",
+    "tagline": "Chauffeurs independants, courses partagees en Cote d'Ivoire.",
     "company": "Entreprise",
+    "product": "Produit",
+    "legal": "Legal",
     "about": "A propos",
-    "contact": "Contact",
+    "safety": "Securite",
+    "ride": "Passager",
+    "drive": "Chauffeur",
     "privacy": "Confidentialite",
-    "terms": "Conditions d'utilisation",
-    "blog": "Blog",
-    "careers": "Carrieres",
-    "followUs": "Suivez-nous",
+    "terms": "Conditions",
     "rights": "Tous droits reserves."
-  },
-  "search": {
-    "title": "Resultats de recherche",
-    "resultsCount": "{count} professionnels trouves",
-    "noResults": "Aucun resultat. Essayez d'elargir votre recherche.",
-    "listView": "Liste",
-    "mapView": "Carte",
-    "filters": {
-      "title": "Filtres",
-      "category": "Categorie",
-      "city": "Ville",
-      "allCategories": "Toutes les categories",
-      "allCities": "Toutes les villes",
-      "verifiedOnly": "Verifie uniquement",
-      "apply": "Appliquer"
-    }
-  },
-  "business": {
-    "openNow": "Ouvert maintenant",
-    "closedNow": "Ferme actuellement",
-    "hours": "Horaires d'ouverture",
-    "services": "Services",
-    "priceOnRequest": "Sur devis",
-    "reviews": "Avis",
-    "noReviews": "Aucun avis pour le moment.",
-    "call": "Appeler",
-    "whatsapp": "WhatsApp",
-    "website": "Site web",
-    "address": "Adresse",
-    "about": "A propos",
-    "contactForm": "Contacter cette entreprise",
-    "days": {
-      "MONDAY": "Lundi", "TUESDAY": "Mardi", "WEDNESDAY": "Mercredi", "THURSDAY": "Jeudi",
-      "FRIDAY": "Vendredi", "SATURDAY": "Samedi", "SUNDAY": "Dimanche"
-    },
-    "closedToday": "Ferme"
-  },
-  "auth": {
-    "login": { "title": "Connexion", "email": "Email", "password": "Mot de passe", "submit": "Se connecter", "googleButton": "Continuer avec Google", "noAccount": "Pas encore de compte ?", "registerLink": "S'inscrire" },
-    "register": { "title": "Creer un compte", "name": "Nom complet", "email": "Email", "phone": "Telephone (optionnel)", "password": "Mot de passe", "submit": "S'inscrire", "haveAccount": "Deja un compte ?", "loginLink": "Se connecter" }
-  },
-  "provider": {
-    "title": "Inscrivez votre entreprise sur Woyo",
-    "subtitle": "Rejoignez des milliers de professionnels et touchez de nouveaux clients.",
-    "name": "Nom de l'entreprise",
-    "category": "Categorie",
-    "city": "Ville",
-    "shortDescription": "Description courte",
-    "description": "Description complete",
-    "address": "Adresse",
-    "phone": "Telephone",
-    "whatsapp": "WhatsApp",
-    "email": "Email",
-    "website": "Site web (optionnel)",
-    "submit": "Soumettre pour verification",
-    "loginRequired": "Connectez-vous pour inscrire votre entreprise.",
-    "successTitle": "Merci !",
-    "successMessage": "Votre entreprise a ete soumise et sera verifiee par notre equipe sous peu."
   }
 }

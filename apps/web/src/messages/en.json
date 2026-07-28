@@ -1,113 +1,91 @@
 {
-  "brand": { "name": "Woyo", "tagline": "Find trusted professionals near you" },
-  "nav": {
-    "findProfessionals": "Find Professionals",
-    "becomeProvider": "Become a Provider",
-    "login": "Login",
-    "register": "Sign up",
-    "logout": "Log out",
-    "myAccount": "My account"
+  "nav": { "ride": "Ride", "drive": "Drive", "about": "About" },
+  "home": {
+    "heroTitle": "Go anywhere",
+    "heroSubtitle": "Request a ride. Hop in. Go.",
+    "riderCta": "Get a ride",
+    "driverCta": "Drive and earn",
+    "howItWorksTitle": "How it works",
+    "step1Title": "Open the app",
+    "step1Body": "Enter your destination and see the fare before you go.",
+    "step2Title": "Get matched with a driver",
+    "step2Body": "An independent driver nearby accepts your ride.",
+    "step3Title": "Ride with confidence",
+    "step3Body": "Track your trip in real time until you arrive.",
+    "citiesTitle": "Available across Cote d'Ivoire",
+    "citiesBody": "In Abidjan, get the full Tekeche range (standard, scheduled, delivery, XL). Elsewhere in the country, Woyo offers fixed-fare shared rides with drivers already heading your way.",
+    "safetyTitle": "Your safety, our priority",
+    "safetyBody": "Verified drivers, real-time trip tracking, support available whenever you need it.",
+    "downloadTitle": "Get the Woyo app",
+    "downloadBody": "Coming soon on the App Store and Google Play.",
+    "comingSoon": "Coming soon"
   },
-  "hero": {
-    "title": "What service are you looking for?",
-    "subtitle": "The directory of trusted professionals and businesses in Cote d'Ivoire",
-    "professionPlaceholder": "Profession, service or business",
-    "locationPlaceholder": "City or neighborhood",
-    "searchButton": "Search",
-    "findProfessionals": "Find Professionals",
-    "becomeProvider": "Become a Provider"
+  "ride": {
+    "heroTitle": "A ride for every trip",
+    "heroSubtitle": "In Abidjan or beyond, Woyo gets you where you're going.",
+    "cta": "Get the app",
+    "abidjanTitle": "In Abidjan",
+    "abidjanBody": "The full Tekeche range: standard rides, scheduled rides, delivery, XL vehicles.",
+    "elsewhereTitle": "Everywhere else in Cote d'Ivoire",
+    "elsewhereBody": "Fixed-fare shared rides at 200 FCFA. Woyo matches you with a driver already heading your way, up to 4 passengers per vehicle.",
+    "howTitle": "How it works",
+    "how1": "Enter your pickup and destination",
+    "how2": "Woyo finds a driver heading your direction",
+    "how3": "Hop in and pay the fixed fare",
+    "faresTitle": "Transparent pricing",
+    "faresBody": "200 FCFA per passenger for a shared Woyo ride, known before you get in."
   },
-  "categories": {
-    "title": "Popular Categories",
-    "subtitle": "Explore the most requested services",
-    "viewAll": "View all categories"
+  "drive": {
+    "heroTitle": "Drive. Earn. Independent.",
+    "heroSubtitle": "Become a Woyo driver and accept rides on your own schedule.",
+    "cta": "Become a driver",
+    "howTitle": "How it works",
+    "how1Title": "Sign up",
+    "how1Body": "Create your driver profile and upload your documents (license, registration, insurance).",
+    "how2Title": "KYC verification",
+    "how2Body": "Our team verifies your documents to keep everyone safe.",
+    "how3Title": "Accept rides",
+    "how3Body": "Receive ride requests, navigate with built-in GPS, and collect your earnings.",
+    "earnTitle": "Earn on your schedule",
+    "earnBody": "Choose your own hours. Every shared Woyo ride pays a fixed fare, and you can carry up to 4 passengers at once.",
+    "requirementsTitle": "What you'll need",
+    "req1": "Valid driver's license",
+    "req2": "Vehicle in good condition with registration",
+    "req3": "Android or iOS smartphone",
+    "req4": "Clean criminal record"
   },
-  "featured": {
-    "title": "Featured Businesses",
-    "subtitle": "Discover verified professionals near you",
-    "openNow": "Open now",
-    "closed": "Closed",
-    "verified": "Verified",
-    "viewProfile": "View Profile",
-    "call": "Call",
-    "whatsapp": "WhatsApp"
+  "safety": {
+    "heroTitle": "Safety comes first",
+    "heroSubtitle": "Every Woyo trip is designed to protect riders and drivers alike.",
+    "item1Title": "Verified drivers",
+    "item1Body": "Every driver goes through identity and document verification (KYC) before accepting their first ride.",
+    "item2Title": "Trip tracking",
+    "item2Body": "The vehicle's location is tracked for the full duration of the ride.",
+    "item3Title": "Support available",
+    "item3Body": "A support team is available to help with any issue during or after a ride."
   },
-  "stats": {
-    "businesses": "Businesses",
-    "cities": "Cities",
-    "monthlyVisitors": "Monthly Visitors"
+  "about": {
+    "heroTitle": "About Woyo",
+    "body1": "Woyo is a Livbiko brand, built to make mobility accessible across all of Cote d'Ivoire, not just Abidjan.",
+    "body2": "In Abidjan, Woyo runs on the same independent driver fleet as Tekeche. Elsewhere in the country, Woyo offers a fixed-fare shared-ride model designed for everyday trips.",
+    "body3": "Our goal: connecting independent drivers and riders, simply and reliably."
   },
-  "testimonials": {
-    "title": "What our users say"
+  "legal": {
+    "title": "Legal",
+    "body": "For the Woyo app's full privacy policy, see the dedicated page.",
+    "privacyLink": "Privacy Policy"
   },
   "footer": {
-    "description": "The marketplace connecting Ivorians with trusted professionals and businesses.",
+    "tagline": "Independent drivers, shared rides across Cote d'Ivoire.",
     "company": "Company",
+    "product": "Product",
+    "legal": "Legal",
     "about": "About",
-    "contact": "Contact",
+    "safety": "Safety",
+    "ride": "Ride",
+    "drive": "Drive",
     "privacy": "Privacy",
     "terms": "Terms",
-    "blog": "Blog",
-    "careers": "Careers",
-    "followUs": "Follow us",
     "rights": "All rights reserved."
-  },
-  "search": {
-    "title": "Search results",
-    "resultsCount": "{count} professionals found",
-    "noResults": "No results. Try broadening your search.",
-    "listView": "List",
-    "mapView": "Map",
-    "filters": {
-      "title": "Filters",
-      "category": "Category",
-      "city": "City",
-      "allCategories": "All categories",
-      "allCities": "All cities",
-      "verifiedOnly": "Verified only",
-      "apply": "Apply"
-    }
-  },
-  "business": {
-    "openNow": "Open now",
-    "closedNow": "Currently closed",
-    "hours": "Opening hours",
-    "services": "Services",
-    "priceOnRequest": "On request",
-    "reviews": "Reviews",
-    "noReviews": "No reviews yet.",
-    "call": "Call",
-    "whatsapp": "WhatsApp",
-    "website": "Website",
-    "address": "Address",
-    "about": "About",
-    "contactForm": "Contact this business",
-    "days": {
-      "MONDAY": "Monday", "TUESDAY": "Tuesday", "WEDNESDAY": "Wednesday", "THURSDAY": "Thursday",
-      "FRIDAY": "Friday", "SATURDAY": "Saturday", "SUNDAY": "Sunday"
-    },
-    "closedToday": "Closed"
-  },
-  "auth": {
-    "login": { "title": "Login", "email": "Email", "password": "Password", "submit": "Log in", "googleButton": "Continue with Google", "noAccount": "Don't have an account?", "registerLink": "Sign up" },
-    "register": { "title": "Create an account", "name": "Full name", "email": "Email", "phone": "Phone (optional)", "password": "Password", "submit": "Sign up", "haveAccount": "Already have an account?", "loginLink": "Log in" }
-  },
-  "provider": {
-    "title": "List your business on Woyo",
-    "subtitle": "Join thousands of professionals and reach new customers.",
-    "name": "Business name",
-    "category": "Category",
-    "city": "City",
-    "shortDescription": "Short description",
-    "description": "Full description",
-    "address": "Address",
-    "phone": "Phone",
-    "whatsapp": "WhatsApp",
-    "email": "Email",
-    "website": "Website (optional)",
-    "submit": "Submit for review",
-    "loginRequired": "Log in to list your business.",
-    "successTitle": "Thank you!",
-    "successMessage": "Your business has been submitted and will be reviewed by our team shortly."
   }
 }

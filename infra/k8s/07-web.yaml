@@ -19,8 +19,6 @@ spec:
         - name: ocir-pull-secret
       containers:
         - name: web
-          # Built with NEXT_PUBLIC_API_URL=https://225woyo.com/api baked in
-          # at image-build time (Kaniko --build-arg) -- see apps/web/Dockerfile.
           image: lhr.ocir.io/lr14abpkfrxj/woyo-web:latest
           ports:
             - containerPort: 3000
@@ -30,13 +28,6 @@ spec:
             # accepts connections addressed to that pod name, not loopback.
             - name: HOSTNAME
               value: "0.0.0.0"
-            # Server Components running inside this pod reach the api via
-            # the in-cluster Service name, not the public domain.
-            - name: API_URL
-              valueFrom:
-                configMapKeyRef:
-                  name: woyo-config
-                  key: API_URL
           resources:
             requests:
               cpu: "100m"

@@ -1,34 +1,32 @@
 import type { Config } from 'tailwindcss';
 
+// Real Woyo brand, matching the already-shipped mobile app
+// (tekeche-mobile/app.config.js: WOYO_INDIGO / WOYO_GOLD) -- not invented
+// for this site, kept consistent with the actual product.
 const config: Config = {
   content: ['./src/**/*.{ts,tsx}'],
   theme: {
     extend: {
       colors: {
-        primary: {
-          DEFAULT: '#0E8A3A',
-          dark: '#0B6E2E',
-          light: '#E7F5EC',
+        indigo: {
+          DEFAULT: '#1B1440',
+          dark: '#120D2C',
+          light: '#2E2560',
         },
-        secondary: {
-          DEFAULT: '#F4A300',
-          dark: '#CC8800',
-          light: '#FEF3E0',
+        gold: {
+          DEFAULT: '#F4A825',
+          dark: '#D4900F',
+          light: '#FCE7C2',
         },
-        surface: '#F8F9FA',
       },
       fontFamily: {
         sans: ['var(--font-inter)', 'Inter', 'sans-serif'],
-      },
-      borderRadius: {
-        xl: '1rem',
-        '2xl': '1.25rem',
       },
       keyframes: {
         'fade-in': { from: { opacity: '0', transform: 'translateY(8px)' }, to: { opacity: '1', transform: 'translateY(0)' } },
       },
       animation: {
-        'fade-in': 'fade-in 0.4s ease-out',
+        'fade-in': 'fade-in 0.5s ease-out',
       },
     },
   },
