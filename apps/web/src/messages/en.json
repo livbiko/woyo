@@ -13,7 +13,7 @@
     "step3Title": "Ride with confidence",
     "step3Body": "Track your trip in real time until you arrive.",
     "citiesTitle": "Available across Cote d'Ivoire",
-    "citiesBody": "In Abidjan, get the full Tekeche range (standard, scheduled, delivery, XL). Elsewhere in the country, Woyo offers fixed-fare shared rides with drivers already heading your way.",
+    "citiesBody": "In Abidjan, get the full Tekeche range (standard, scheduled, delivery, XL). Elsewhere in the country, Woyo matches you with a nearby independent driver who takes you straight to your destination.",
     "safetyTitle": "Your safety, our priority",
     "safetyBody": "Verified drivers, real-time trip tracking, support available whenever you need it.",
     "downloadTitle": "Get the Woyo app",
@@ -27,13 +27,13 @@
     "abidjanTitle": "In Abidjan",
     "abidjanBody": "The full Tekeche range: standard rides, scheduled rides, delivery, XL vehicles.",
     "elsewhereTitle": "Everywhere else in Cote d'Ivoire",
-    "elsewhereBody": "Fixed-fare shared rides at 200 FCFA. Woyo matches you with a driver already heading your way, up to 4 passengers per vehicle.",
+    "elsewhereBody": "A private ride, straight to where you're going. Woyo matches you with a nearby independent driver who takes you directly to your destination.",
     "howTitle": "How it works",
     "how1": "Enter your pickup and destination",
-    "how2": "Woyo finds a driver heading your direction",
-    "how3": "Hop in and pay the fixed fare",
+    "how2": "Woyo matches you with a nearby independent driver",
+    "how3": "Hop in and ride straight to your destination",
     "faresTitle": "Transparent pricing",
-    "faresBody": "200 FCFA per passenger for a shared Woyo ride, known before you get in."
+    "faresBody": "Your fare is estimated before you go, based on the distance and length of your trip."
   },
   "drive": {
     "heroTitle": "Drive. Earn. Independent.",
@@ -47,7 +47,7 @@
     "how3Title": "Accept rides",
     "how3Body": "Receive ride requests, navigate with built-in GPS, and collect your earnings.",
     "earnTitle": "Earn on your schedule",
-    "earnBody": "Choose your own hours. Every shared Woyo ride pays a fixed fare, and you can carry up to 4 passengers at once.",
+    "earnBody": "Choose your own hours and accept the rides that work for you. Every ride pays based on the distance and length of the trip.",
     "requirementsTitle": "What you'll need",
     "req1": "Valid driver's license",
     "req2": "Vehicle in good condition with registration",
@@ -67,7 +67,7 @@
   "about": {
     "heroTitle": "About Woyo",
     "body1": "Woyo is a Livbiko brand, built to make mobility accessible across all of Cote d'Ivoire, not just Abidjan.",
-    "body2": "In Abidjan, Woyo runs on the same independent driver fleet as Tekeche. Elsewhere in the country, Woyo offers a fixed-fare shared-ride model designed for everyday trips.",
+    "body2": "In Abidjan, Woyo runs on the same independent driver fleet as Tekeche. Elsewhere in the country, Woyo connects independent drivers and riders for direct rides, built for everyday trips.",
     "body3": "Our goal: connecting independent drivers and riders, simply and reliably."
   },
   "legal": {
@@ -76,7 +76,7 @@
     "privacyLink": "Privacy Policy"
   },
   "footer": {
-    "tagline": "Independent drivers, shared rides across Cote d'Ivoire.",
+    "tagline": "Independent drivers, rides across Cote d'Ivoire.",
     "company": "Company",
     "product": "Product",
     "legal": "Legal",

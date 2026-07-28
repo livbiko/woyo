@@ -1,12 +1,18 @@
 # Woyo
 
-Marketing site for **Woyo** — the shared-ride app that connects independent
+Marketing site for **Woyo** — the ride app that connects independent
 drivers with passengers across Cote d'Ivoire. In Abidjan, Woyo runs on the
 same driver fleet as [Tekeche](https://tekeche.com); elsewhere in the
-country, Woyo offers fixed-fare shared rides (200 FCFA, bearing-matched
-dispatch, up to 4 passengers per vehicle — see
-`tekeche-api/src/services/woyo.service.js` for the real dispatch logic this
-site describes).
+country, Woyo matches riders with a nearby independent driver for a
+private, direct ride.
+
+> **Note**: the current `tekeche-api/src/services/woyo.service.js` backend
+> actually implements a fixed-fare (200 FCFA), bearing-matched *shared*
+> dispatch model (up to 4 passengers/vehicle) — this site deliberately
+> markets the "elsewhere" experience as standard private point-to-point
+> rides instead, per explicit direction (2026-07-28). Worth reconciling
+> with product/backend if that's a lasting decision, not just a marketing
+> simplification.
 
 > **Naming note**: this is the marketing site for the *existing* Woyo
 > mobile app (a `tekeche-mobile` `APP_VARIANT`, `com.woyo.app`) — not a

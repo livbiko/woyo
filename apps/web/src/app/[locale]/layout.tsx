@@ -14,11 +14,11 @@ const SITE_URL = 'https://225woyo.com';
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Woyo — Chauffeurs independants, courses partagees en Cote d'Ivoire",
+    default: "Woyo — Chauffeurs independants en Cote d'Ivoire",
     template: '%s | Woyo',
   },
   description:
-    "Woyo connecte les passagers a des chauffeurs independants partout en Cote d'Ivoire. A Abidjan, toute la gamme Tekeche. Ailleurs, des courses partagees a tarif fixe.",
+    "Woyo connecte les passagers a des chauffeurs independants partout en Cote d'Ivoire. A Abidjan, toute la gamme Tekeche. Ailleurs, des courses privees, directes.",
   openGraph: {
     type: 'website',
     siteName: 'Woyo',

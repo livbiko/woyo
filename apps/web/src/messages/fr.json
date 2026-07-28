@@ -13,7 +13,7 @@
     "step3Title": "Roulez en toute confiance",
     "step3Body": "Suivez votre trajet en temps reel jusqu'a destination.",
     "citiesTitle": "Disponible en Cote d'Ivoire",
-    "citiesBody": "A Abidjan, profitez de toute la gamme Tekeche (course, programmee, livraison, XL). Ailleurs dans le pays, Woyo propose des courses partagees a tarif fixe, avec des chauffeurs qui vont deja dans votre direction.",
+    "citiesBody": "A Abidjan, profitez de toute la gamme Tekeche (course, programmee, livraison, XL). Ailleurs dans le pays, Woyo vous met en relation avec un chauffeur independant pres de vous, pour vous emmener directement a destination.",
     "safetyTitle": "Votre securite, notre priorite",
     "safetyBody": "Chauffeurs verifies, suivi de trajet en temps reel, assistance disponible a tout moment.",
     "downloadTitle": "Telechargez l'application Woyo",
@@ -27,13 +27,13 @@
     "abidjanTitle": "A Abidjan",
     "abidjanBody": "Toute la gamme Tekeche : course classique, course programmee, livraison, vehicules XL.",
     "elsewhereTitle": "Partout ailleurs en Cote d'Ivoire",
-    "elsewhereBody": "Des courses partagees a tarif fixe de 200 FCFA. Woyo vous met en relation avec un chauffeur deja en route dans votre direction, jusqu'a 4 passagers par vehicule.",
+    "elsewhereBody": "Une course privee, directe, de A a Z. Woyo vous met en relation avec un chauffeur independant pres de vous, qui vous emmene droit a votre destination.",
     "howTitle": "Comment ca marche",
     "how1": "Indiquez votre depart et votre destination",
-    "how2": "Woyo trouve un chauffeur allant dans votre direction",
-    "how3": "Montez et payez le tarif fixe",
+    "how2": "Woyo vous met en relation avec un chauffeur independant pres de vous",
+    "how3": "Montez et roulez directement vers votre destination",
     "faresTitle": "Tarifs transparents",
-    "faresBody": "200 FCFA par passager pour une course partagee Woyo, connu avant de monter."
+    "faresBody": "Le tarif de votre course est estime avant de partir, selon la distance et la duree du trajet."
   },
   "drive": {
     "heroTitle": "Conduisez. Gagnez. Independant.",
@@ -47,7 +47,7 @@
     "how3Title": "Acceptez des courses",
     "how3Body": "Recevez des demandes de course, naviguez avec le GPS integre, et encaissez vos gains.",
     "earnTitle": "Gagnez a votre rythme",
-    "earnBody": "Choisissez vos horaires. Chaque course partagee Woyo rapporte un tarif fixe, et vous pouvez transporter jusqu'a 4 passagers en meme temps.",
+    "earnBody": "Choisissez vos horaires et acceptez les courses qui vous conviennent. Chaque course rapporte un revenu base sur la distance et la duree du trajet.",
     "requirementsTitle": "Ce qu'il vous faut",
     "req1": "Permis de conduire valide",
     "req2": "Vehicule en bon etat avec carte grise",
@@ -67,7 +67,7 @@
   "about": {
     "heroTitle": "A propos de Woyo",
     "body1": "Woyo est une marque de Livbiko, concue pour rendre la mobilite accessible partout en Cote d'Ivoire, pas seulement a Abidjan.",
-    "body2": "A Abidjan, Woyo s'appuie sur la meme flotte de chauffeurs independants que Tekeche. Ailleurs dans le pays, Woyo propose un modele de course partagee a tarif fixe, pense pour les trajets du quotidien.",
+    "body2": "A Abidjan, Woyo s'appuie sur la meme flotte de chauffeurs independants que Tekeche. Ailleurs dans le pays, Woyo connecte chauffeurs independants et passagers pour des courses directes, pensees pour les trajets du quotidien.",
     "body3": "Notre objectif : connecter chauffeurs independants et passagers, simplement et surement."
   },
   "legal": {
@@ -76,7 +76,7 @@
     "privacyLink": "Politique de confidentialite"
   },
   "footer": {
-    "tagline": "Chauffeurs independants, courses partagees en Cote d'Ivoire.",
+    "tagline": "Chauffeurs independants, des courses partout en Cote d'Ivoire.",
     "company": "Entreprise",
     "product": "Produit",
     "legal": "Legal",
