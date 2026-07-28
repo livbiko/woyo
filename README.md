@@ -1,23 +1,21 @@
 # Woyo
 
 Marketing site for **Woyo** — the ride app that connects independent
-drivers with passengers across Cote d'Ivoire. In Abidjan, Woyo runs on the
-same driver fleet as [Tekeche](https://tekeche.com); elsewhere in the
-country, Woyo matches riders with a nearby independent driver for a
-private, direct ride.
+drivers with passengers, privately and directly, everywhere in Cote
+d'Ivoire.
 
-> **Note**: the current `tekeche-api/src/services/woyo.service.js` backend
-> actually implements a fixed-fare (200 FCFA), bearing-matched *shared*
-> dispatch model (up to 4 passengers/vehicle) — this site deliberately
-> markets the "elsewhere" experience as standard private point-to-point
-> rides instead, per explicit direction (2026-07-28). Worth reconciling
-> with product/backend if that's a lasting decision, not just a marketing
-> simplification.
-
-> **Naming note**: this is the marketing site for the *existing* Woyo
-> mobile app (a `tekeche-mobile` `APP_VARIANT`, `com.woyo.app`) — not a
-> separate product. Brand colors (`#1B1440` indigo / `#F4A825` gold) match
-> that app exactly.
+> **Public positioning, per explicit direction (2026-07-28)**: Woyo is
+> presented as its own fully independent brand on this site — no mention
+> of any other Livbiko brand or shared fleet/backend. Brand color is red
+> (`#E11D2E`), matching the actual Woyo vehicle livery.
+>
+> **Internal note for future devs** (not public-facing): the app is
+> technically still built as a `tekeche-mobile` `APP_VARIANT`
+> (`com.woyo.app`), and the current `woyo.service.js` backend implements a
+> fixed-fare (200 FCFA), bearing-matched *shared* dispatch model (up to 4
+> passengers/vehicle) — this site deliberately markets standard private
+> point-to-point rides instead. Worth reconciling with product/backend if
+> that's a lasting decision, not just a marketing simplification.
 
 Live at **https://225woyo.com**.
 
@@ -25,10 +23,10 @@ Live at **https://225woyo.com**.
 
 A static Next.js marketing site: homepage, `/ride` (passenger pitch),
 `/drive` (driver recruitment pitch), `/safety`, `/about`, `/legal`. No
-accounts, no backend, no database — all real product functionality (ride
-requests, driver dispatch, payments) lives in `tekeche-api` /
-`tekeche-mobile`, not here. App Store / Google Play links are intentionally
-shown as "coming soon" rather than fake links — the app isn't published on
+accounts, no backend, no database — this repo is presentation only, all
+real ride/dispatch functionality lives in the actual Woyo app and its
+backend, not here. App Store / Google Play links are intentionally shown
+as "coming soon" rather than fake links — the app isn't published on
 either store yet.
 
 ## Tech stack

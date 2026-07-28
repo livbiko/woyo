@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     template: '%s | Woyo',
   },
   description:
-    "Woyo connecte les passagers a des chauffeurs independants partout en Cote d'Ivoire. A Abidjan, toute la gamme Tekeche. Ailleurs, des courses privees, directes.",
+    "Woyo connecte les passagers a des chauffeurs independants partout en Cote d'Ivoire, pour des courses privees et directes.",
   openGraph: {
     type: 'website',
     siteName: 'Woyo',

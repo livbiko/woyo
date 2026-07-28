@@ -12,8 +12,8 @@
     "step2Body": "Un chauffeur independant pres de vous accepte votre course.",
     "step3Title": "Roulez en toute confiance",
     "step3Body": "Suivez votre trajet en temps reel jusqu'a destination.",
-    "citiesTitle": "Disponible en Cote d'Ivoire",
-    "citiesBody": "A Abidjan, profitez de toute la gamme Tekeche (course, programmee, livraison, XL). Ailleurs dans le pays, Woyo vous met en relation avec un chauffeur independant pres de vous, pour vous emmener directement a destination.",
+    "citiesTitle": "Disponible partout en Cote d'Ivoire",
+    "citiesBody": "Ou que vous soyez dans le pays, Woyo vous met en relation avec un chauffeur independant pres de vous, pour vous emmener directement a destination.",
     "safetyTitle": "Votre securite, notre priorite",
     "safetyBody": "Chauffeurs verifies, suivi de trajet en temps reel, assistance disponible a tout moment.",
     "downloadTitle": "Telechargez l'application Woyo",
@@ -22,12 +22,10 @@
   },
   "ride": {
     "heroTitle": "Une course pour chaque trajet",
-    "heroSubtitle": "A Abidjan comme ailleurs, Woyo vous emmene la ou vous allez.",
+    "heroSubtitle": "Woyo vous emmene la ou vous allez, partout en Cote d'Ivoire.",
     "cta": "Obtenir l'application",
-    "abidjanTitle": "A Abidjan",
-    "abidjanBody": "Toute la gamme Tekeche : course classique, course programmee, livraison, vehicules XL.",
-    "elsewhereTitle": "Partout ailleurs en Cote d'Ivoire",
-    "elsewhereBody": "Une course privee, directe, de A a Z. Woyo vous met en relation avec un chauffeur independant pres de vous, qui vous emmene droit a votre destination.",
+    "descriptionTitle": "Une course privee, directe",
+    "descriptionBody": "Ou que vous soyez en Cote d'Ivoire, Woyo vous met en relation avec un chauffeur independant pres de vous, qui vous emmene droit a votre destination, de A a Z.",
     "howTitle": "Comment ca marche",
     "how1": "Indiquez votre depart et votre destination",
     "how2": "Woyo vous met en relation avec un chauffeur independant pres de vous",
@@ -67,13 +65,12 @@
   "about": {
     "heroTitle": "A propos de Woyo",
     "body1": "Woyo est une marque de Livbiko, concue pour rendre la mobilite accessible partout en Cote d'Ivoire, pas seulement a Abidjan.",
-    "body2": "A Abidjan, Woyo s'appuie sur la meme flotte de chauffeurs independants que Tekeche. Ailleurs dans le pays, Woyo connecte chauffeurs independants et passagers pour des courses directes, pensees pour les trajets du quotidien.",
+    "body2": "Woyo connecte chauffeurs independants et passagers pour des courses directes, partout dans le pays, pensees pour les trajets du quotidien.",
     "body3": "Notre objectif : connecter chauffeurs independants et passagers, simplement et surement."
   },
   "legal": {
     "title": "Mentions legales",
-    "body": "Pour la politique de confidentialite complete de l'application Woyo, consultez la page dediee.",
-    "privacyLink": "Politique de confidentialite"
+    "body": "La politique de confidentialite et les conditions d'utilisation de l'application Woyo sont disponibles directement dans l'application. Pour toute question, contactez-nous."
   },
   "footer": {
     "tagline": "Chauffeurs independants, des courses partout en Cote d'Ivoire.",

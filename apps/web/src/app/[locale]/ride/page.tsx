@@ -11,24 +11,20 @@ export default async function RidePage() {
 
   return (
     <>
-      <PageHero title={t('heroTitle')} subtitle={t('heroSubtitle')} />
+      <PageHero
+        title={t('heroTitle')}
+        subtitle={t('heroSubtitle')}
+        image="https://images.unsplash.com/photo-1506719040632-7d586470c936?w=1920&q=80"
+      />
 
-      <section className="mx-auto max-w-5xl px-4 py-16 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
-          <div className="rounded-2xl border border-gray-100 p-8">
-            <h2 className="mb-2 text-xl font-bold text-indigo">{t('abidjanTitle')}</h2>
-            <p className="text-gray-600">{t('abidjanBody')}</p>
-          </div>
-          <div className="rounded-2xl border border-gray-100 bg-indigo-light/5 p-8">
-            <h2 className="mb-2 text-xl font-bold text-indigo">{t('elsewhereTitle')}</h2>
-            <p className="text-gray-600">{t('elsewhereBody')}</p>
-          </div>
-        </div>
+      <section className="mx-auto max-w-3xl px-4 py-16 text-center sm:px-6 lg:px-8">
+        <h2 className="mb-2 text-2xl font-bold text-ink">{t('descriptionTitle')}</h2>
+        <p className="text-gray-600">{t('descriptionBody')}</p>
       </section>
 
       <section className="bg-gray-50 py-16">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-          <h2 className="mb-8 text-center text-2xl font-bold text-indigo">{t('howTitle')}</h2>
+          <h2 className="mb-8 text-center text-2xl font-bold text-ink">{t('howTitle')}</h2>
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-3">
             {[
               { icon: MapPin, text: t('how1') },
@@ -36,7 +32,7 @@ export default async function RidePage() {
               { icon: DollarSign, text: t('how3') },
             ].map((step, i) => (
               <div key={i} className="text-center">
-                <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-indigo text-white">
+                <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-red text-white">
                   <step.icon className="h-5 w-5" />
                 </div>
                 <p className="text-sm text-gray-600">{step.text}</p>
@@ -47,7 +43,7 @@ export default async function RidePage() {
       </section>
 
       <section className="mx-auto max-w-3xl px-4 py-16 text-center sm:px-6 lg:px-8">
-        <h2 className="mb-2 text-2xl font-bold text-indigo">{t('faresTitle')}</h2>
+        <h2 className="mb-2 text-2xl font-bold text-ink">{t('faresTitle')}</h2>
         <p className="mb-8 text-gray-600">{t('faresBody')}</p>
         <Button variant="primary" size="lg" disabled>
           {t('cta')}

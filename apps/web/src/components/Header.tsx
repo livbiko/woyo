@@ -8,13 +8,13 @@ export function Header({ dark = false }: { dark?: boolean }) {
   const t = useTranslations('nav');
   const locale = useLocale();
   const pathname = usePathname();
-  const textColor = dark ? 'text-white' : 'text-indigo';
+  const textColor = dark ? 'text-white' : 'text-ink';
 
   return (
     <header className={cn_header(dark)}>
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link href="/" className={`flex items-center gap-2 font-bold text-lg ${textColor}`}>
-          <span className="flex h-8 w-8 items-center justify-center rounded-md bg-gold text-indigo-dark font-black">
+          <span className="flex h-8 w-8 items-center justify-center rounded-md bg-white text-red font-black">
             W
           </span>
           Woyo

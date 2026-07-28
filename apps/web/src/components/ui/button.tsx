@@ -7,10 +7,10 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 const VARIANTS: Record<NonNullable<ButtonProps['variant']>, string> = {
-  primary: 'bg-gold text-indigo-dark hover:bg-gold-dark',
+  primary: 'bg-red text-white hover:bg-red-dark',
   outline: 'border border-current bg-transparent hover:bg-black/5',
   ghost: 'bg-transparent hover:bg-black/5',
-  white: 'bg-white text-indigo hover:bg-gray-100',
+  white: 'bg-white text-red hover:bg-gray-100',
 };
 
 const SIZES: Record<NonNullable<ButtonProps['size']>, string> = {

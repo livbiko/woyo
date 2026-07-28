@@ -1,22 +1,22 @@
 import type { Config } from 'tailwindcss';
 
-// Real Woyo brand, matching the already-shipped mobile app
-// (tekeche-mobile/app.config.js: WOYO_INDIGO / WOYO_GOLD) -- not invented
-// for this site, kept consistent with the actual product.
+// Woyo brand red -- matches the actual Woyo vehicle livery, per explicit
+// direction (2026-07-28), not the tekeche-mobile app's indigo/gold UI
+// theme (a physical car livery and a mobile app's UI color scheme are
+// deliberately allowed to differ).
 const config: Config = {
   content: ['./src/**/*.{ts,tsx}'],
   theme: {
     extend: {
       colors: {
-        indigo: {
-          DEFAULT: '#1B1440',
-          dark: '#120D2C',
-          light: '#2E2560',
+        red: {
+          DEFAULT: '#E11D2E',
+          dark: '#A10D1C',
+          light: '#FDECED',
         },
-        gold: {
-          DEFAULT: '#F4A825',
-          dark: '#D4900F',
-          light: '#FCE7C2',
+        ink: {
+          DEFAULT: '#111111',
+          light: '#1F1F1F',
         },
       },
       fontFamily: {

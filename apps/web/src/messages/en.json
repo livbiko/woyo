@@ -12,8 +12,8 @@
     "step2Body": "An independent driver nearby accepts your ride.",
     "step3Title": "Ride with confidence",
     "step3Body": "Track your trip in real time until you arrive.",
-    "citiesTitle": "Available across Cote d'Ivoire",
-    "citiesBody": "In Abidjan, get the full Tekeche range (standard, scheduled, delivery, XL). Elsewhere in the country, Woyo matches you with a nearby independent driver who takes you straight to your destination.",
+    "citiesTitle": "Available everywhere in Cote d'Ivoire",
+    "citiesBody": "Wherever you are in the country, Woyo matches you with a nearby independent driver who takes you straight to your destination.",
     "safetyTitle": "Your safety, our priority",
     "safetyBody": "Verified drivers, real-time trip tracking, support available whenever you need it.",
     "downloadTitle": "Get the Woyo app",
@@ -22,12 +22,10 @@
   },
   "ride": {
     "heroTitle": "A ride for every trip",
-    "heroSubtitle": "In Abidjan or beyond, Woyo gets you where you're going.",
+    "heroSubtitle": "Woyo gets you where you're going, anywhere in Cote d'Ivoire.",
     "cta": "Get the app",
-    "abidjanTitle": "In Abidjan",
-    "abidjanBody": "The full Tekeche range: standard rides, scheduled rides, delivery, XL vehicles.",
-    "elsewhereTitle": "Everywhere else in Cote d'Ivoire",
-    "elsewhereBody": "A private ride, straight to where you're going. Woyo matches you with a nearby independent driver who takes you directly to your destination.",
+    "descriptionTitle": "A private ride, straight there",
+    "descriptionBody": "Wherever you are in Cote d'Ivoire, Woyo matches you with a nearby independent driver who takes you directly to your destination, start to finish.",
     "howTitle": "How it works",
     "how1": "Enter your pickup and destination",
     "how2": "Woyo matches you with a nearby independent driver",
@@ -67,13 +65,12 @@
   "about": {
     "heroTitle": "About Woyo",
     "body1": "Woyo is a Livbiko brand, built to make mobility accessible across all of Cote d'Ivoire, not just Abidjan.",
-    "body2": "In Abidjan, Woyo runs on the same independent driver fleet as Tekeche. Elsewhere in the country, Woyo connects independent drivers and riders for direct rides, built for everyday trips.",
+    "body2": "Woyo connects independent drivers and riders for direct rides, everywhere in the country, built for everyday trips.",
     "body3": "Our goal: connecting independent drivers and riders, simply and reliably."
   },
   "legal": {
     "title": "Legal",
-    "body": "For the Woyo app's full privacy policy, see the dedicated page.",
-    "privacyLink": "Privacy Policy"
+    "body": "The Woyo app's privacy policy and terms of use are available directly within the app. For any questions, contact us."
   },
   "footer": {
     "tagline": "Independent drivers, rides across Cote d'Ivoire.",

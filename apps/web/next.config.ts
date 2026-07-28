@@ -9,6 +9,9 @@ const nextConfig: NextConfig = {
   // workspace -- pin the tracing root so Next never guesses a wrong
   // monorepo root (lesson learned on NouvellesDuPays and reapplied here).
   outputFileTracingRoot: __dirname,
+  images: {
+    remotePatterns: [{ protocol: 'https', hostname: 'images.unsplash.com' }],
+  },
 };
 
 export default withNextIntl(nextConfig);

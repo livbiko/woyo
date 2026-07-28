@@ -16,16 +16,20 @@ export default async function SafetyPage() {
 
   return (
     <>
-      <PageHero title={t('heroTitle')} subtitle={t('heroSubtitle')} />
+      <PageHero
+        title={t('heroTitle')}
+        subtitle={t('heroSubtitle')}
+        image="https://images.unsplash.com/photo-1541945503710-82ad4425a126?w=1920&q=80"
+      />
       <section className="mx-auto max-w-4xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="space-y-8">
           {items.map((item) => (
             <div key={item.title} className="flex gap-5 rounded-2xl border border-gray-100 p-6">
-              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-indigo text-white">
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-red text-white">
                 <item.icon className="h-5 w-5" />
               </div>
               <div>
-                <h2 className="mb-1 font-semibold text-indigo">{item.title}</h2>
+                <h2 className="mb-1 font-semibold text-ink">{item.title}</h2>
                 <p className="text-sm text-gray-600">{item.body}</p>
               </div>
             </div>

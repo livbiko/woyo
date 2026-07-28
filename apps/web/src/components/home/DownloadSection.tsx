@@ -9,7 +9,7 @@ export function DownloadSection() {
 
   return (
     <section className="mx-auto max-w-4xl px-4 py-20 text-center sm:px-6 lg:px-8">
-      <h2 className="mb-3 text-3xl font-bold text-indigo">{t('downloadTitle')}</h2>
+      <h2 className="mb-3 text-3xl font-bold text-ink">{t('downloadTitle')}</h2>
       <p className="mb-8 text-gray-500">{t('downloadBody')}</p>
       <div className="flex flex-col items-center justify-center gap-3 sm:flex-row">
         <span className="flex items-center gap-2 rounded-xl border border-gray-200 px-5 py-3 text-sm font-medium text-gray-400">
