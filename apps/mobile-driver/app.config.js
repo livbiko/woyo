@@ -6,9 +6,10 @@ const IS_LOCAL = process.env.APP_ENV === 'local';
 
 // New identity — no pre-existing EAS project/App Store listing for the
 // driver app (the old shared 'woyo' variant/EAS project was repurposed
-// for Passenger; Driver is a clean split). Run `eas init` once ready to
-// build and set WOYO_DRIVER_EAS_PROJECT_ID, or replace the placeholder below.
-const EAS_PROJECT_ID = process.env.WOYO_DRIVER_EAS_PROJECT_ID || 'TODO_RUN_EAS_INIT';
+// for Passenger; Driver is a clean split). Created 2026-07-29 via `eas init`
+// under the livbiko account: @livbiko/woyo-driver —
+// https://expo.dev/accounts/livbiko/projects/woyo-driver
+const EAS_PROJECT_ID = process.env.WOYO_DRIVER_EAS_PROJECT_ID || 'cda8aa89-057a-48f2-843d-4e0d9a0f4e12';
 
 // Woyo brand — deep indigo ground, warm marigold-gold mark (matches
 // 225woyo.com). Icon/splash/adaptive-icon assets: assets/woyo-*.png.
