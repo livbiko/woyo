@@ -1,0 +1,75 @@
+{
+  "cli": {
+    "version": ">= 16.0.0",
+    "appVersionSource": "remote",
+    "promptToConfigurePushNotifications": false
+  },
+  "build": {
+    "development": {
+      "developmentClient": true,
+      "distribution": "internal",
+      "env": {
+        "EXPO_PUBLIC_API_URL": "http://localhost:3000",
+        "EXPO_PUBLIC_CONVEX_URL": "https://elated-guanaco-699.convex.cloud",
+        "EXPO_PUBLIC_SENTRY_DSN": "https://ec515f68f975296f71ef1b929cfd5df9@o4511443838959616.ingest.de.sentry.io/4511445360640080"
+      }
+    },
+    "preview": {
+      "distribution": "internal",
+      "android": {
+        "buildType": "apk"
+      },
+      "env": {
+        "EXPO_PUBLIC_API_URL": "https://staging-api.tekeche.com",
+        "EXPO_PUBLIC_APP_TOKEN": "$WOYO_APP_TOKEN",
+        "EXPO_PUBLIC_CONVEX_URL": "https://elated-guanaco-699.convex.cloud",
+        "EXPO_PUBLIC_GOOGLE_MAPS_API_KEY": "AIzaSyBOPZ6_UZHwuyKtQOyugnMjt8hs-JlGapQ",
+        "EXPO_PUBLIC_SENTRY_DSN": "https://ec515f68f975296f71ef1b929cfd5df9@o4511443838959616.ingest.de.sentry.io/4511445360640080"
+      }
+    },
+    "production": {
+      "autoIncrement": true,
+      "channel": "production",
+      "env": {
+        "EXPO_PUBLIC_API_URL": "https://api.tekeche.com",
+        "EXPO_PUBLIC_APP_TOKEN": "$WOYO_APP_TOKEN",
+        "EXPO_PUBLIC_CONVEX_URL": "https://elated-guanaco-699.convex.cloud",
+        "EXPO_PUBLIC_GOOGLE_MAPS_API_KEY": "AIzaSyBOPZ6_UZHwuyKtQOyugnMjt8hs-JlGapQ",
+        "EXPO_PUBLIC_SENTRY_DSN": "https://ec515f68f975296f71ef1b929cfd5df9@o4511443838959616.ingest.de.sentry.io/4511445360640080"
+      }
+    },
+    "production-ios": {
+      "autoIncrement": true,
+      "channel": "production",
+      "distribution": "store",
+      "credentialsSource": "remote",
+      "ios": {
+        "buildConfiguration": "Release"
+      },
+      "env": {
+        "EXPO_PUBLIC_API_URL": "https://api.tekeche.com",
+        "EXPO_PUBLIC_APP_TOKEN": "$WOYO_APP_TOKEN",
+        "EXPO_PUBLIC_CONVEX_URL": "https://elated-guanaco-699.convex.cloud",
+        "EXPO_PUBLIC_GOOGLE_MAPS_API_KEY": "AIzaSyBOPZ6_UZHwuyKtQOyugnMjt8hs-JlGapQ",
+        "EXPO_PUBLIC_SENTRY_DSN": "https://ec515f68f975296f71ef1b929cfd5df9@o4511443838959616.ingest.de.sentry.io/4511445360640080"
+      }
+    }
+  },
+  "submit": {
+    "production": {
+      "android": {
+        "serviceAccountKeyPath": "./woyo-google-service-account.json",
+        "track": "alpha",
+        "releaseStatus": "draft"
+      }
+    },
+    "production-ios": {
+      "ios": {
+        "appleId": "hervemalindo@outlook.com",
+        "ascAppId": "6794617379",
+        "appleTeamId": "69T4C3C4H2",
+        "language": "fr-FR"
+      }
+    }
+  }
+}
