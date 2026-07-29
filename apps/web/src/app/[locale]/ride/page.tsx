@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
-import { MapPin, Users, DollarSign } from 'lucide-react';
+import { MapPin, Users, DollarSign, Car } from 'lucide-react';
 import { PageHero } from '@/components/PageHero';
 import { Button } from '@/components/ui/button';
 
@@ -20,6 +20,28 @@ export default async function RidePage() {
       <section className="mx-auto max-w-3xl px-4 py-16 text-center sm:px-6 lg:px-8">
         <h2 className="mb-2 text-2xl font-bold text-ink">{t('descriptionTitle')}</h2>
         <p className="text-gray-600">{t('descriptionBody')}</p>
+      </section>
+
+      <section className="py-16">
+        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+          <h2 className="mb-8 text-center text-2xl font-bold text-ink">{t('modesTitle')}</h2>
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+            <div className="rounded-2xl border border-gray-200 p-8 text-center">
+              <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-red text-white">
+                <Car className="h-5 w-5" />
+              </div>
+              <h3 className="mb-2 text-lg font-bold text-ink">{t('abidjanTitle')}</h3>
+              <p className="text-sm text-gray-600">{t('abidjanBody')}</p>
+            </div>
+            <div className="rounded-2xl border border-gray-200 p-8 text-center">
+              <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-red text-white">
+                <Users className="h-5 w-5" />
+              </div>
+              <h3 className="mb-2 text-lg font-bold text-ink">{t('restTitle')}</h3>
+              <p className="text-sm text-gray-600">{t('restBody')}</p>
+            </div>
+          </div>
+        </div>
       </section>
 
       <section className="bg-gray-50 py-16">

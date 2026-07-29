@@ -13,7 +13,7 @@
     "step3Title": "Ride with confidence",
     "step3Body": "Track your trip in real time until you arrive.",
     "citiesTitle": "Available everywhere in Cote d'Ivoire",
-    "citiesBody": "Wherever you are in the country, Woyo matches you with a nearby independent driver who takes you straight to your destination.",
+    "citiesBody": "In Abidjan, choose your vehicle for a private ride. Everywhere else in Cote d'Ivoire, Woyo matches you with a driver already on the way, at a fixed fare set for your town.",
     "safetyTitle": "Your safety, our priority",
     "safetyBody": "Verified drivers, real-time trip tracking, support available whenever you need it.",
     "downloadTitle": "Get the Woyo app",
@@ -22,16 +22,21 @@
   },
   "ride": {
     "heroTitle": "A ride for every trip",
-    "heroSubtitle": "Woyo gets you where you're going, anywhere in Cote d'Ivoire.",
+    "heroSubtitle": "Private rides in Abidjan. Fixed fares from 200 FCFA everywhere else.",
     "cta": "Get the app",
-    "descriptionTitle": "A private ride, straight there",
-    "descriptionBody": "Wherever you are in Cote d'Ivoire, Woyo matches you with a nearby independent driver who takes you directly to your destination, start to finish.",
+    "descriptionTitle": "Two ways to ride with Woyo",
+    "descriptionBody": "In Abidjan, book a private ride start to finish with the vehicle of your choice (Moto, Standard, Comfort, XL). Everywhere else in Cote d'Ivoire, Woyo matches you with a driver already heading your way, at a fixed fare set for your town.",
+    "modesTitle": "The Woyo service, wherever you are",
+    "abidjanTitle": "In Abidjan",
+    "abidjanBody": "A private ride, start to finish, with the vehicle of your choice.",
+    "restTitle": "Everywhere else in Cote d'Ivoire",
+    "restBody": "A driver already on the way picks you up, at a fixed fare set for your town.",
     "howTitle": "How it works",
     "how1": "Enter your pickup and destination",
     "how2": "Woyo matches you with a nearby independent driver",
-    "how3": "Hop in and ride straight to your destination",
+    "how3": "Hop in and ride to your destination",
     "faresTitle": "Transparent pricing",
-    "faresBody": "Your fare is estimated before you go, based on the distance and length of your trip."
+    "faresBody": "In Abidjan, your fare is estimated before you go based on distance. Elsewhere, a fixed fare is set for each town."
   },
   "drive": {
     "heroTitle": "Drive. Earn. Independent.",
@@ -81,8 +86,8 @@
   },
   "about": {
     "heroTitle": "About Woyo",
-    "body1": "Woyo is a Livbiko brand, built to make mobility accessible across all of Cote d'Ivoire, not just Abidjan.",
-    "body2": "Woyo connects independent drivers and riders for direct rides, everywhere in the country, built for everyday trips.",
+    "body1": "Woyo is a Livbiko brand. In Abidjan, Woyo offers private rides, just like Tekeche. Everywhere else in Cote d'Ivoire, Woyo connects drivers and riders at a fixed fare, making mobility accessible everywhere.",
+    "body2": "Every Woyo driver is independent and verified, for safe, reliable trips in the city and across the rest of the country.",
     "body3": "Our goal: connecting independent drivers and riders, simply and reliably."
   },
   "legal": {

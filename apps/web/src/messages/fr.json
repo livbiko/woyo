@@ -13,7 +13,7 @@
     "step3Title": "Roulez en toute confiance",
     "step3Body": "Suivez votre trajet en temps reel jusqu'a destination.",
     "citiesTitle": "Disponible partout en Cote d'Ivoire",
-    "citiesBody": "Ou que vous soyez dans le pays, Woyo vous met en relation avec un chauffeur independant pres de vous, pour vous emmener directement a destination.",
+    "citiesBody": "A Abidjan, choisissez votre vehicule pour une course privee. Partout ailleurs en Cote d'Ivoire, Woyo vous met en relation avec un chauffeur deja en route, a tarif fixe selon votre ville.",
     "safetyTitle": "Votre securite, notre priorite",
     "safetyBody": "Chauffeurs verifies, suivi de trajet en temps reel, assistance disponible a tout moment.",
     "downloadTitle": "Telechargez l'application Woyo",
@@ -22,16 +22,21 @@
   },
   "ride": {
     "heroTitle": "Une course pour chaque trajet",
-    "heroSubtitle": "Woyo vous emmene la ou vous allez, partout en Cote d'Ivoire.",
+    "heroSubtitle": "A Abidjan, roulez en prive. Partout ailleurs, a tarif fixe des 200 FCFA.",
     "cta": "Obtenir l'application",
-    "descriptionTitle": "Une course privee, directe",
-    "descriptionBody": "Ou que vous soyez en Cote d'Ivoire, Woyo vous met en relation avec un chauffeur independant pres de vous, qui vous emmene droit a votre destination, de A a Z.",
+    "descriptionTitle": "Deux facons de rouler avec Woyo",
+    "descriptionBody": "A Abidjan, reservez une course privee de A a Z avec le vehicule de votre choix (Moto, Standard, Comfort, XL). Partout ailleurs en Cote d'Ivoire, Woyo vous met en relation avec un chauffeur deja en route dans votre direction, a tarif fixe defini pour votre ville.",
+    "modesTitle": "Le service Woyo, selon ou vous etes",
+    "abidjanTitle": "A Abidjan",
+    "abidjanBody": "Une course privee, de A a Z, avec le vehicule de votre choix.",
+    "restTitle": "Partout ailleurs en Cote d'Ivoire",
+    "restBody": "Un chauffeur deja en route vous prend en charge, a tarif fixe selon votre ville.",
     "howTitle": "Comment ca marche",
     "how1": "Indiquez votre depart et votre destination",
     "how2": "Woyo vous met en relation avec un chauffeur independant pres de vous",
-    "how3": "Montez et roulez directement vers votre destination",
+    "how3": "Montez et roulez vers votre destination",
     "faresTitle": "Tarifs transparents",
-    "faresBody": "Le tarif de votre course est estime avant de partir, selon la distance et la duree du trajet."
+    "faresBody": "A Abidjan, le tarif est estime avant de partir selon la distance. Ailleurs, un tarif fixe est defini pour chaque ville."
   },
   "drive": {
     "heroTitle": "Conduisez. Gagnez. Independant.",
@@ -81,8 +86,8 @@
   },
   "about": {
     "heroTitle": "A propos de Woyo",
-    "body1": "Woyo est une marque de Livbiko, concue pour rendre la mobilite accessible partout en Cote d'Ivoire, pas seulement a Abidjan.",
-    "body2": "Woyo connecte chauffeurs independants et passagers pour des courses directes, partout dans le pays, pensees pour les trajets du quotidien.",
+    "body1": "Woyo est une marque de Livbiko. A Abidjan, Woyo propose des courses privees, comme Tekeche. Partout ailleurs en Cote d'Ivoire, Woyo connecte chauffeurs et passagers a tarif fixe, pour rendre la mobilite accessible partout.",
+    "body2": "Chaque chauffeur Woyo est independant et verifie, pour des trajets surs et fiables, en ville comme sur le reste du territoire.",
     "body3": "Notre objectif : connecter chauffeurs independants et passagers, simplement et surement."
   },
   "legal": {
