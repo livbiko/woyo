@@ -1,0 +1,87 @@
+name: Build iOS
+
+on:
+  workflow_dispatch:
+    inputs:
+      variant:
+        description: 'App to build (passenger / driver / both)'
+        type: choice
+        options: [both, passenger, driver]
+        default: both
+      submit:
+        description: 'Submit to TestFlight after build?'
+        type: boolean
+        default: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - variant: passenger
+            working-directory: apps/mobile-passenger
+            profile: production-ios
+          - variant: driver
+            working-directory: apps/mobile-driver
+            profile: production-ios
+
+    steps:
+      - name: Skip check
+        id: skip
+        run: |
+          INPUT="${{ github.event.inputs.variant }}"
+          VARIANT="${{ matrix.variant }}"
+          if [[ "$INPUT" != "both" && "$INPUT" != "$VARIANT" ]]; then
+            echo "result=true" >> $GITHUB_OUTPUT
+          else
+            echo "result=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Checkout
+        if: steps.skip.outputs.result != 'true'
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        if: steps.skip.outputs.result != 'true'
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: ${{ matrix.working-directory }}/package-lock.json
+
+      - name: Install EAS CLI
+        if: steps.skip.outputs.result != 'true'
+        run: npm install -g eas-cli
+
+      - name: Install dependencies
+        if: steps.skip.outputs.result != 'true'
+        working-directory: ${{ matrix.working-directory }}
+        run: npm ci
+
+      - name: Build ${{ matrix.variant }} iOS app (EAS cloud)
+        if: steps.skip.outputs.result != 'true'
+        working-directory: ${{ matrix.working-directory }}
+        env:
+          EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+          WOYO_APP_TOKEN: ${{ secrets.WOYO_APP_TOKEN }}
+          WOYO_DRIVER_APP_TOKEN: ${{ secrets.WOYO_DRIVER_APP_TOKEN }}
+        run: |
+          eas build \
+            --platform ios \
+            --profile ${{ matrix.profile }} \
+            --non-interactive \
+            --wait
+
+      - name: Submit to TestFlight
+        if: steps.skip.outputs.result != 'true' && github.event.inputs.submit == 'true'
+        working-directory: ${{ matrix.working-directory }}
+        env:
+          EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+        run: |
+          eas submit \
+            --platform ios \
+            --profile ${{ matrix.profile }} \
+            --latest \
+            --non-interactive
