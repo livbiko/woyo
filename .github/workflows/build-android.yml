@@ -8,6 +8,10 @@ on:
         type: choice
         options: [both, passenger, driver]
         default: both
+      submit:
+        description: 'Submit to Google Play (alpha track) after build?'
+        type: boolean
+        default: false
 
 jobs:
   build:
@@ -19,9 +23,11 @@ jobs:
           - variant: passenger
             working-directory: apps/mobile-passenger
             profile: production
+            service-account-key-filename: woyo-google-service-account.json
           - variant: driver
             working-directory: apps/mobile-driver
             profile: production
+            service-account-key-filename: woyo-driver-google-service-account.json
 
     steps:
       - name: Skip check
@@ -69,3 +75,27 @@ jobs:
             --profile ${{ matrix.profile }} \
             --non-interactive \
             --wait
+
+      - name: Write Google Play service account key
+        if: steps.skip.outputs.result != 'true' && github.event.inputs.submit == 'true'
+        working-directory: ${{ matrix.working-directory }}
+        env:
+          SERVICE_ACCOUNT_JSON: ${{ secrets.WOYO_GOOGLE_SERVICE_ACCOUNT_JSON }}
+        run: echo "$SERVICE_ACCOUNT_JSON" > ${{ matrix.service-account-key-filename }}
+
+      - name: Submit to Google Play (alpha track)
+        if: steps.skip.outputs.result != 'true' && github.event.inputs.submit == 'true'
+        working-directory: ${{ matrix.working-directory }}
+        env:
+          EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+        run: |
+          eas submit \
+            --platform android \
+            --profile ${{ matrix.profile }} \
+            --latest \
+            --non-interactive
+
+      - name: Remove service account key
+        if: always() && steps.skip.outputs.result != 'true' && github.event.inputs.submit == 'true'
+        working-directory: ${{ matrix.working-directory }}
+        run: rm -f ${{ matrix.service-account-key-filename }}
