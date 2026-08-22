@@ -62,6 +62,14 @@
         "track": "alpha",
         "releaseStatus": "draft"
       }
+    },
+    "production-ios": {
+      "ios": {
+        "appleId": "hervemalindo@outlook.com",
+        "ascAppId": "6804284252",
+        "appleTeamId": "69T4C3C4H2",
+        "language": "fr-FR"
+      }
     }
   }
 }
