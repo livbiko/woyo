@@ -74,6 +74,13 @@ jobs:
             --non-interactive \
             --wait
 
+      - name: Write App Store Connect API key (driver)
+        if: steps.skip.outputs.result != 'true' && github.event.inputs.submit == 'true' && matrix.variant == 'driver'
+        working-directory: ${{ matrix.working-directory }}
+        env:
+          WOYO_DRIVER_ASC_API_KEY: ${{ secrets.WOYO_DRIVER_ASC_API_KEY }}
+        run: echo "$WOYO_DRIVER_ASC_API_KEY" > asc-api-key.p8
+
       - name: Submit to TestFlight
         if: steps.skip.outputs.result != 'true' && github.event.inputs.submit == 'true'
         working-directory: ${{ matrix.working-directory }}
@@ -85,3 +92,8 @@ jobs:
             --profile ${{ matrix.profile }} \
             --latest \
             --non-interactive
+
+      - name: Clean up App Store Connect API key (driver)
+        if: always() && matrix.variant == 'driver'
+        working-directory: ${{ matrix.working-directory }}
+        run: rm -f asc-api-key.p8
