@@ -68,6 +68,9 @@
         "appleId": "hervemalindo@outlook.com",
         "ascAppId": "6804284252",
         "appleTeamId": "69T4C3C4H2",
+        "ascApiKeyPath": "./asc-api-key.p8",
+        "ascApiKeyId": "B5PPGXN8XX",
+        "ascApiKeyIssuerId": "3c916aa5-66d3-44fa-bcdc-0f9dc6c6b235",
         "language": "fr-FR"
       }
     }
