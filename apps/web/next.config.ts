@@ -12,6 +12,15 @@ const nextConfig: NextConfig = {
   images: {
     remotePatterns: [{ protocol: 'https', hostname: 'images.unsplash.com' }],
   },
+  // Clean URL for the static delete-account.html page in public/ (shared
+  // Tekeche backend integration, not an App Router page). middleware.ts
+  // excludes this exact path from locale redirection so the rewrite below
+  // actually gets a chance to run.
+  async rewrites() {
+    return [
+      { source: '/delete-account', destination: '/delete-account.html' },
+    ];
+  },
 };
 
 export default withNextIntl(nextConfig);
