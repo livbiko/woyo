@@ -87,7 +87,36 @@ const withRemoveAdIdPermission = (config) =>
     return c;
   });
 
-module.exports = withNetworkSecurity(withRemoveAdIdPermission({
+// Removes ACCESS_BACKGROUND_LOCATION and FOREGROUND_SERVICE_LOCATION injected
+// unconditionally by expo-location's own manifest -- this app only ever uses
+// foreground location (see NSLocationWhenInUseUsageDescription below); no
+// background task code exists anywhere in this app, so these permissions are
+// unused dead weight that otherwise trip Play Console's background-location
+// policy declaration.
+const withRemoveBackgroundLocationPermissions = (config) =>
+    withAndroidManifest(config, (c) => {
+          const manifest = c.modResults.manifest;
+          if (!manifest.$['xmlns:tools']) {
+                  manifest.$['xmlns:tools'] = 'http://schemas.android.com/tools';
+          }
+          if (!manifest['uses-permission']) manifest['uses-permission'] = [];
+          const toRemove = [
+                  'android.permission.ACCESS_BACKGROUND_LOCATION',
+                  'android.permission.FOREGROUND_SERVICE_LOCATION',
+                ];
+          toRemove.forEach((permName) => {
+                  const already = manifest['uses-permission'].some(
+                            (p) => p.$?.['android:name'] === permName
+                                    );
+                  if (!already) {
+                            manifest['uses-permission'].push({ $: { 'android:name': permName, 'tools:node': 'remove' } });
+                  }
+          });
+          return c;
+    });
+
+
+module.exports = withNetworkSecurity(withRemoveAdIdPermission(withRemoveBackgroundLocationPermissions({
   expo: {
     name: appName,
     slug: 'woyo',
@@ -172,4 +201,4 @@ module.exports = withNetworkSecurity(withRemoveAdIdPermission({
     },
     owner: 'livbiko',
   },
-}));
+})));
