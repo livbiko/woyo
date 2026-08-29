@@ -59,7 +59,7 @@
     "production": {
       "android": {
         "serviceAccountKeyPath": "./woyo-driver-google-service-account.json",
-        "track": "alpha",
+        "track": "production",
         "releaseStatus": "draft"
       }
     },
