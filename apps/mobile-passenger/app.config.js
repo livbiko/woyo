@@ -160,8 +160,6 @@ module.exports = withNetworkSecurity(withRemoveAdIdPermission(withRemoveBackgrou
         'ACCESS_FINE_LOCATION',
         'ACCESS_COARSE_LOCATION',
         'CAMERA',
-        'READ_EXTERNAL_STORAGE',
-        'READ_MEDIA_IMAGES',
         'android.permission.ACCESS_COARSE_LOCATION',
         'android.permission.ACCESS_FINE_LOCATION',
       ],
