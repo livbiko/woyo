@@ -76,6 +76,8 @@ jobs:
           EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
           WOYO_APP_TOKEN: ${{ secrets.WOYO_APP_TOKEN }}
           WOYO_DRIVER_APP_TOKEN: ${{ secrets.WOYO_DRIVER_APP_TOKEN }}
+          GRADLE_OPTS: "-Xmx4g -XX:MaxMetaspaceSize=1g -Dorg.gradle.daemon=false -Dorg.gradle.parallel=false"
+          _JAVA_OPTIONS: "-Xmx4g -XX:MaxMetaspaceSize=1g"
         run: |
           eas build \
             --local \
