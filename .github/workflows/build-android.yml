@@ -9,7 +9,7 @@ on:
         options: [both, passenger, driver]
         default: both
       submit:
-        description: 'Submit to Google Play (alpha track) after build?'
+        description: 'Submit to Google Play (production track) after build?'
         type: boolean
         default: false
 
@@ -53,6 +53,13 @@ jobs:
           cache: 'npm'
           cache-dependency-path: ${{ matrix.working-directory }}/package-lock.json
 
+      - name: Set up JDK 17
+        if: steps.skip.outputs.result != 'true'
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
       - name: Install EAS CLI
         if: steps.skip.outputs.result != 'true'
         run: npm install -g eas-cli
@@ -62,7 +69,7 @@ jobs:
         working-directory: ${{ matrix.working-directory }}
         run: npm ci
 
-      - name: Build ${{ matrix.variant }} Android app (EAS cloud)
+      - name: Build ${{ matrix.variant }} Android app (local build, bypasses EAS cloud quota)
         if: steps.skip.outputs.result != 'true'
         working-directory: ${{ matrix.working-directory }}
         env:
@@ -71,10 +78,11 @@ jobs:
           WOYO_DRIVER_APP_TOKEN: ${{ secrets.WOYO_DRIVER_APP_TOKEN }}
         run: |
           eas build \
+            --local \
             --platform android \
             --profile ${{ matrix.profile }} \
             --non-interactive \
-            --wait
+            --output ./build.aab
 
       - name: Write Google Play service account key
         if: steps.skip.outputs.result != 'true' && github.event.inputs.submit == 'true'
@@ -83,7 +91,7 @@ jobs:
           SERVICE_ACCOUNT_JSON: ${{ secrets.WOYO_GOOGLE_SERVICE_ACCOUNT_JSON }}
         run: echo "$SERVICE_ACCOUNT_JSON" > ${{ matrix.service-account-key-filename }}
 
-      - name: Submit to Google Play (alpha track)
+      - name: Submit to Google Play (production track)
         if: steps.skip.outputs.result != 'true' && github.event.inputs.submit == 'true'
         working-directory: ${{ matrix.working-directory }}
         env:
@@ -92,7 +100,7 @@ jobs:
           eas submit \
             --platform android \
             --profile ${{ matrix.profile }} \
-            --latest \
+            --path ./build.aab \
             --non-interactive
 
       - name: Remove service account key
