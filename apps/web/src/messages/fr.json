@@ -94,6 +94,27 @@
     "title": "Mentions legales",
     "body": "La politique de confidentialite et les conditions d'utilisation de l'application Woyo sont disponibles directement dans l'application. Pour toute question, contactez-nous."
   },
+  "privacy": {
+    "title": "Politique de confidentialite",
+    "lastUpdated": "Derniere mise a jour : septembre 2026",
+    "intro": "Chez Woyo, nous accordons une grande importance a la protection de vos donnees personnelles. Cette politique explique quelles informations nous collectons, comment nous les utilisons, et quels sont vos droits.",
+    "section1Title": "Informations que nous collectons",
+    "section1Body": "Nous collectons vos coordonnees (nom, numero de telephone, adresse e-mail) lors de la creation de votre compte ; votre position geographique pendant l'utilisation de l'application, afin de mettre en relation passagers et chauffeurs ; pour les chauffeurs, les documents d'identite et de vehicule requis pour la verification de compte (KYC) ; les informations necessaires au traitement des paiements ; ainsi que des donnees techniques sur votre appareil et votre utilisation de l'application.",
+    "section2Title": "Utilisation des donnees",
+    "section2Body": "Ces informations nous permettent de fournir et d'ameliorer nos services, de mettre en relation passagers et chauffeurs, de traiter les paiements, de verifier l'identite des chauffeurs, d'assurer la securite de la plateforme, et de communiquer avec vous au sujet de votre compte ou de vos courses.",
+    "section3Title": "Partage des donnees",
+    "section3Body": "Nous ne vendons pas vos donnees personnelles. Certaines informations peuvent etre partagees avec des prestataires de services tiers (traitement des paiements, hebergement, assistance) strictement necessaires au fonctionnement de l'application, ou avec les autorites competentes lorsque la loi l'exige.",
+    "section4Title": "Conservation des donnees",
+    "section4Body": "Vos donnees sont conservees aussi longtemps que votre compte est actif, ou aussi longtemps que necessaire pour respecter nos obligations legales, resoudre des litiges et faire appliquer nos accords.",
+    "section5Title": "Vos droits",
+    "section5Body": "Vous disposez d'un droit d'acces, de rectification et de suppression de vos donnees personnelles. Vous pouvez exercer ces droits depuis les parametres de votre compte dans l'application, ou en nous contactant aux coordonnees ci-dessous.",
+    "section6Title": "Securite",
+    "section6Body": "Nous mettons en oeuvre des mesures techniques et organisationnelles raisonnables pour proteger vos donnees contre tout acces, modification, divulgation ou destruction non autorises.",
+    "section7Title": "Modifications de cette politique",
+    "section7Body": "Nous pouvons mettre a jour cette politique de confidentialite de temps a autre. Toute modification sera publiee sur cette page avec une date de mise a jour revisee.",
+    "contactTitle": "Nous contacter",
+    "contactBody": "Pour toute question concernant cette politique de confidentialite, contactez-nous."
+  },
   "footer": {
     "tagline": "Chauffeurs independants, des courses partout en Cote d'Ivoire.",
     "company": "Entreprise",

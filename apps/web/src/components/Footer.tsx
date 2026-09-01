@@ -50,7 +50,7 @@ export function Footer() {
           <div>
             <h3 className="mb-3 text-sm font-semibold text-white/90">{t('legal')}</h3>
             <ul className="space-y-2 text-sm text-white/60">
-              <li><Link href="/legal" className="hover:text-red">{t('privacy')}</Link></li>
+              <li><Link href="/privacy" className="hover:text-red">{t('privacy')}</Link></li>
               <li><Link href="/legal" className="hover:text-red">{t('terms')}</Link></li>
             </ul>
           </div>

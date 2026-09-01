@@ -94,6 +94,27 @@
     "title": "Legal",
     "body": "The Woyo app's privacy policy and terms of use are available directly within the app. For any questions, contact us."
   },
+  "privacy": {
+    "title": "Privacy Policy",
+    "lastUpdated": "Last updated: September 2026",
+    "intro": "At Woyo, we take the protection of your personal data seriously. This policy explains what information we collect, how we use it, and what rights you have.",
+    "section1Title": "Information we collect",
+    "section1Body": "We collect your contact details (name, phone number, email address) when you create your account; your location while using the app, to match riders with drivers; for drivers, the identity and vehicle documents required for account verification (KYC); the information necessary to process payments; and technical data about your device and your use of the app.",
+    "section2Title": "How we use your data",
+    "section2Body": "We use this information to provide and improve our services, match riders with drivers, process payments, verify driver identity, keep the platform safe, and communicate with you about your account or your rides.",
+    "section3Title": "Sharing your data",
+    "section3Body": "We do not sell your personal data. Some information may be shared with third-party service providers (payment processing, hosting, support) strictly necessary to operate the app, or with competent authorities where required by law.",
+    "section4Title": "Data retention",
+    "section4Body": "Your data is kept for as long as your account is active, or as long as necessary to meet our legal obligations, resolve disputes, and enforce our agreements.",
+    "section5Title": "Your rights",
+    "section5Body": "You have the right to access, correct, and delete your personal data. You can exercise these rights from your account settings in the app, or by contacting us using the details below.",
+    "section6Title": "Security",
+    "section6Body": "We implement reasonable technical and organizational measures to protect your data against unauthorized access, alteration, disclosure, or destruction.",
+    "section7Title": "Changes to this policy",
+    "section7Body": "We may update this privacy policy from time to time. Any changes will be posted on this page with a revised update date.",
+    "contactTitle": "Contact us",
+    "contactBody": "If you have any questions about this privacy policy, please contact us."
+  },
   "footer": {
     "tagline": "Independent drivers, rides across Cote d'Ivoire.",
     "company": "Company",
