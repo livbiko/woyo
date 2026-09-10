@@ -35,13 +35,14 @@ export default function DriverDashboard() {
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const router = useRouter();
 
-  const [online, setOnline]           = useState(false);
-  const [location, setLocation]       = useState<{ latitude: number; longitude: number } | null>(null);
-  const [request, setRequest]         = useState<TripRequest | null>(null);
-  const [countdown, setCountdown]     = useState(COUNTDOWN);
-  const [summary, setSummary]         = useState<TodaySummary>({ trips: 0, earnings: 0 });
-  const [toggling, setToggling]       = useState(false);
+  const [online, setOnline] = useState(false);
+  const [location, setLocation] = useState<{ latitude: number; longitude: number } | null>(null);
+  const [request, setRequest] = useState<TripRequest | null>(null);
+  const [countdown, setCountdown] = useState(COUNTDOWN);
+  const [summary, setSummary] = useState<TodaySummary>({ trips: 0, earnings: 0 });
+  const [toggling, setToggling] = useState(false);
   const [surgeActive, setSurgeActive] = useState(false);
+  const [showLocationDisclosure, setShowLocationDisclosure] = useState(false);
 
   useEffect(() => {
     let sub: Location.LocationSubscription | null = null;
@@ -59,8 +60,6 @@ export default function DriverDashboard() {
           updateConvexLocation({ driverId: user._id, lat: coords.latitude, lng: coords.longitude }).catch(() => {});
         }
       });
-
-      if (user?._id) await startBackgroundLocation(user._id);
     })();
     loadSummary();
     return () => {
@@ -122,9 +121,15 @@ export default function DriverDashboard() {
     } catch {}
   };
 
-  const toggleOnline = async (val: boolean) => {
+  // Actually flips online status with the API, then (if going online) starts
+  // background location tracking. Only called once we know the driver has
+  // either already granted background location or just consented via the
+  // in-app disclosure screen below — never before.
+  const commitOnlineStatus = async (val: boolean) => {
     setToggling(true);
     try {
+      if (val && user?._id) await startBackgroundLocation(user._id);
+      if (!val) await stopBackgroundLocation();
       await client.put('/drivers/status', { isOnline: val });
       setOnline(val);
     } catch (err: any) {
@@ -138,6 +143,28 @@ export default function DriverDashboard() {
       }
     }
     finally { setToggling(false); }
+  };
+
+  const toggleOnline = async (val: boolean) => {
+    if (!val) {
+      await commitOnlineStatus(false);
+      return;
+    }
+    // Going online requires background location (to keep matching you with
+    // nearby passengers and tracking trips while the app is backgrounded).
+    // Show the prominent, in-app disclosure before the OS permission prompt
+    // if we don't already have background permission — never request it silently.
+    const { status: bgStatus } = await Location.getBackgroundPermissionsAsync();
+    if (bgStatus !== 'granted') {
+      setShowLocationDisclosure(true);
+      return;
+    }
+    await commitOnlineStatus(true);
+  };
+
+  const confirmLocationDisclosure = async () => {
+    setShowLocationDisclosure(false);
+    await commitOnlineStatus(true);
   };
 
   const handleAccept = async () => {
@@ -235,6 +262,38 @@ export default function DriverDashboard() {
 
       <SupportChat />
 
+      {/* Background location prominent disclosure — shown before the OS
+          permission prompt, every time a driver goes online without already
+          having granted background location. Required by Play policy: the
+          app must not request ACCESS_BACKGROUND_LOCATION without first
+          explaining, in-app, what is collected and why. */}
+      <Modal visible={showLocationDisclosure} transparent animationType="fade">
+        <View style={styles.modalBackdrop}>
+          <View style={styles.disclosureCard}>
+            <View style={styles.disclosureIconWrap}>
+              <Ionicons name="location" size={26} color={T.teal} />
+            </View>
+            <Text style={styles.disclosureTitle}>Position en arrière-plan</Text>
+            <Text style={styles.disclosureBody}>
+              Pour vous mettre en relation avec des passagers à proximité et suivre vos courses,
+              Tekeche Driver accède à votre position même lorsque l'application est fermée ou que
+              vous ne l'utilisez pas activement. Cet accès n'est actif que pendant que vous êtes en ligne.
+            </Text>
+            <Text style={styles.disclosureSub}>
+              L'écran suivant vous demandera d'autoriser "Tout le temps" dans les paramètres de position Android.
+            </Text>
+            <View style={styles.disclosureActions}>
+              <TouchableOpacity style={styles.disclosureCancelBtn} onPress={() => setShowLocationDisclosure(false)}>
+                <Text style={styles.disclosureCancelText}>Annuler</Text>
+              </TouchableOpacity>
+              <TouchableOpacity style={styles.disclosureContinueBtn} onPress={confirmLocationDisclosure}>
+                <Text style={styles.disclosureContinueText}>Continuer</Text>
+              </TouchableOpacity>
+            </View>
+          </View>
+        </View>
+      </Modal>
+
       {/* Trip request modal */}
       <Modal visible={!!request} transparent animationType="slide">
         <View style={styles.modalBackdrop}>
@@ -322,67 +381,79 @@ export default function DriverDashboard() {
 }
 
 const styles = StyleSheet.create({
-  safe:                { flex: 1, backgroundColor: T.bg },
-  map:                 { flex: 1 },
+  safe: { flex: 1, backgroundColor: T.bg },
+  map: { flex: 1 },
 
   // Overlay
-  overlay:             { position: 'absolute', bottom: 0, left: 0, right: 0, padding: 16, gap: 12 },
+  overlay: { position: 'absolute', bottom: 0, left: 0, right: 0, padding: 16, gap: 12 },
 
-  surgeBanner:         { flexDirection: 'row', alignItems: 'center', gap: 8, backgroundColor: '#FEF3C7', borderRadius: 12, padding: 12, borderWidth: 1, borderColor: '#F59E0B44' },
-  surgeText:           { flex: 1, color: '#92400E', fontSize: 13, fontWeight: '600' },
+  surgeBanner: { flexDirection: 'row', alignItems: 'center', gap: 8, backgroundColor: '#FEF3C7', borderRadius: 12, padding: 12, borderWidth: 1, borderColor: '#F59E0B44' },
+  surgeText: { flex: 1, color: '#92400E', fontSize: 13, fontWeight: '600' },
 
-  onlineCard:          { backgroundColor: T.elevated, borderRadius: T.r20, padding: 18, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', borderWidth: 1.5, borderColor: T.border },
-  onlineCardActive:    { borderColor: T.teal },
-  onlineLeft:          { flexDirection: 'row', alignItems: 'center', gap: 12 },
-  onlineIndicator:     { width: 10, height: 10, borderRadius: 5, backgroundColor: T.muted },
+  onlineCard: { backgroundColor: T.elevated, borderRadius: T.r20, padding: 18, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', borderWidth: 1.5, borderColor: T.border },
+  onlineCardActive: { borderColor: T.teal },
+  onlineLeft: { flexDirection: 'row', alignItems: 'center', gap: 12 },
+  onlineIndicator: { width: 10, height: 10, borderRadius: 5, backgroundColor: T.muted },
   onlineIndicatorActive:{ backgroundColor: T.teal, shadowColor: T.teal, shadowOpacity: 0.8, shadowRadius: 6, elevation: 6 },
-  onlineStatus:        { color: T.text, fontWeight: T.bold, fontSize: 16 },
-  onlineSub:           { color: T.sub, fontSize: 12, marginTop: 1 },
+  onlineStatus: { color: T.text, fontWeight: T.bold, fontSize: 16 },
+  onlineSub: { color: T.sub, fontSize: 12, marginTop: 1 },
 
-  summaryRow:          { flexDirection: 'row', backgroundColor: T.elevated, borderRadius: T.r20, borderWidth: 1, borderColor: T.border, overflow: 'hidden' },
-  summaryCard:         { flex: 1, alignItems: 'center', paddingVertical: 16, gap: 4 },
-  summaryDivider:      { width: 1, backgroundColor: T.border, marginVertical: 12 },
-  summaryIconWrap:     { width: 34, height: 34, borderRadius: 17, backgroundColor: T.tealDim, alignItems: 'center', justifyContent: 'center', marginBottom: 2 },
-  summaryValue:        { color: T.text, fontSize: 20, fontWeight: T.xbold },
-  summaryLabel:        { color: T.sub, fontSize: 12 },
+  summaryRow: { flexDirection: 'row', backgroundColor: T.elevated, borderRadius: T.r20, borderWidth: 1, borderColor: T.border, overflow: 'hidden' },
+  summaryCard: { flex: 1, alignItems: 'center', paddingVertical: 16, gap: 4 },
+  summaryDivider: { width: 1, backgroundColor: T.border, marginVertical: 12 },
+  summaryIconWrap: { width: 34, height: 34, borderRadius: 17, backgroundColor: T.tealDim, alignItems: 'center', justifyContent: 'center', marginBottom: 2 },
+  summaryValue: { color: T.text, fontSize: 20, fontWeight: T.xbold },
+  summaryLabel: { color: T.sub, fontSize: 12 },
 
   // Modal
-  modalBackdrop:       { flex: 1, backgroundColor: 'rgba(0,0,0,0.75)', justifyContent: 'flex-end' },
-  modalCard:           { backgroundColor: T.elevated, borderTopLeftRadius: T.r24, borderTopRightRadius: T.r24, padding: 24, paddingBottom: 36, borderTopWidth: 1, borderColor: T.border },
+  modalBackdrop: { flex: 1, backgroundColor: 'rgba(0,0,0,0.75)', justifyContent: 'flex-end' },
+  modalCard: { backgroundColor: T.elevated, borderTopLeftRadius: T.r24, borderTopRightRadius: T.r24, padding: 24, paddingBottom: 36, borderTopWidth: 1, borderColor: T.border },
 
-  surgePill:           { flexDirection: 'row', alignItems: 'center', gap: 5, alignSelf: 'flex-start', backgroundColor: '#FEF3C7', borderRadius: 20, paddingHorizontal: 12, paddingVertical: 5, borderWidth: 1, borderColor: '#F59E0B66', marginBottom: 12 },
-  surgePillText:       { color: '#92400E', fontSize: 12, fontWeight: '700' },
+  // Location disclosure modal (centered, not bottom-sheet)
+  disclosureCard: { backgroundColor: T.elevated, borderRadius: T.r24, padding: 24, marginHorizontal: 24, marginVertical: 'auto' as any, borderWidth: 1, borderColor: T.border, alignItems: 'center' },
+  disclosureIconWrap: { width: 52, height: 52, borderRadius: 26, backgroundColor: T.tealDim, alignItems: 'center', justifyContent: 'center', marginBottom: 14 },
+  disclosureTitle: { color: T.text, fontSize: 18, fontWeight: T.bold, marginBottom: 10, textAlign: 'center' },
+  disclosureBody: { color: T.sub, fontSize: 14, lineHeight: 20, textAlign: 'center', marginBottom: 10 },
+  disclosureSub: { color: T.muted, fontSize: 12, lineHeight: 17, textAlign: 'center', marginBottom: 20 },
+  disclosureActions: { flexDirection: 'row', gap: 12, width: '100%' },
+  disclosureCancelBtn: { flex: 1, borderWidth: 1.5, borderColor: T.border, borderRadius: T.rFull, paddingVertical: 14, alignItems: 'center' },
+  disclosureCancelText: { color: T.sub, fontWeight: T.bold, fontSize: 14 },
+  disclosureContinueBtn: { flex: 1, backgroundColor: T.teal, borderRadius: T.rFull, paddingVertical: 14, alignItems: 'center' },
+  disclosureContinueText: { color: T.bg, fontWeight: T.xbold, fontSize: 14 },
 
-  modalHeader:         { flexDirection: 'row', alignItems: 'center', gap: 12, marginBottom: 14 },
-  countdownRing:       { width: 60, height: 60, borderRadius: 30, alignItems: 'center', justifyContent: 'center', position: 'relative' },
-  countdownFill:       { position: 'absolute', width: 60, height: 60, borderRadius: 30, borderWidth: 3, borderColor: T.teal },
-  countdownInner:      { flexDirection: 'row', alignItems: 'baseline', gap: 1 },
-  countdownText:       { color: T.text, fontWeight: T.xbold, fontSize: 20 },
-  countdownSec:        { color: T.muted, fontSize: 11 },
-  modalTitle:          { color: T.text, fontSize: 18, fontWeight: T.bold },
-  modalSub:            { color: T.muted, fontSize: 12, marginTop: 2 },
-  fareChip:            { backgroundColor: T.tealDim, borderRadius: T.r12, paddingHorizontal: 12, paddingVertical: 8, alignItems: 'center', borderWidth: 1, borderColor: T.tealBorder },
-  fareChipSurge:       { backgroundColor: '#FEF3C7', borderColor: '#F59E0B66' },
-  fareChipAmt:         { color: T.teal, fontSize: 18, fontWeight: T.xbold },
-  fareChipAmtSurge:    { color: '#92400E' },
-  fareChipCur:         { color: T.teal, fontSize: 10 },
+  surgePill: { flexDirection: 'row', alignItems: 'center', gap: 5, alignSelf: 'flex-start', backgroundColor: '#FEF3C7', borderRadius: 20, paddingHorizontal: 12, paddingVertical: 5, borderWidth: 1, borderColor: '#F59E0B66', marginBottom: 12 },
+  surgePillText: { color: '#92400E', fontSize: 12, fontWeight: '700' },
 
-  progressTrack:       { height: 4, backgroundColor: T.border, borderRadius: 2, marginBottom: 18 },
-  progressFill:        { height: 4, backgroundColor: T.teal, borderRadius: 2 },
+  modalHeader: { flexDirection: 'row', alignItems: 'center', gap: 12, marginBottom: 14 },
+  countdownRing: { width: 60, height: 60, borderRadius: 30, alignItems: 'center', justifyContent: 'center', position: 'relative' },
+  countdownFill: { position: 'absolute', width: 60, height: 60, borderRadius: 30, borderWidth: 3, borderColor: T.teal },
+  countdownInner: { flexDirection: 'row', alignItems: 'baseline', gap: 1 },
+  countdownText: { color: T.text, fontWeight: T.xbold, fontSize: 20 },
+  countdownSec: { color: T.muted, fontSize: 11 },
+  modalTitle: { color: T.text, fontSize: 18, fontWeight: T.bold },
+  modalSub: { color: T.muted, fontSize: 12, marginTop: 2 },
+  fareChip: { backgroundColor: T.tealDim, borderRadius: T.r12, paddingHorizontal: 12, paddingVertical: 8, alignItems: 'center', borderWidth: 1, borderColor: T.tealBorder },
+  fareChipSurge: { backgroundColor: '#FEF3C7', borderColor: '#F59E0B66' },
+  fareChipAmt: { color: T.teal, fontSize: 18, fontWeight: T.xbold },
+  fareChipAmtSurge: { color: '#92400E' },
+  fareChipCur: { color: T.teal, fontSize: 10 },
 
-  tripCard:            { backgroundColor: T.card, borderRadius: T.r16, padding: 14, marginBottom: 10, borderWidth: 1, borderColor: T.border },
-  tripRow:             { flexDirection: 'row', alignItems: 'flex-start', gap: 10 },
-  tripDot:             { width: 10, height: 10, borderRadius: 5, marginTop: 4 },
-  tripConnector:       { width: 2, height: 16, backgroundColor: T.border, marginLeft: 4, marginVertical: 2 },
-  tripRowLabel:        { color: T.muted, fontSize: 11 },
-  tripRowVal:          { color: T.text, fontSize: 14, fontWeight: '500', marginTop: 1 },
+  progressTrack: { height: 4, backgroundColor: T.border, borderRadius: 2, marginBottom: 18 },
+  progressFill: { height: 4, backgroundColor: T.teal, borderRadius: 2 },
 
-  distanceTag:         { flexDirection: 'row', alignItems: 'center', gap: 4, marginBottom: 16 },
-  distanceTagText:     { color: T.sub, fontSize: 13 },
+  tripCard: { backgroundColor: T.card, borderRadius: T.r16, padding: 14, marginBottom: 10, borderWidth: 1, borderColor: T.border },
+  tripRow: { flexDirection: 'row', alignItems: 'flex-start', gap: 10 },
+  tripDot: { width: 10, height: 10, borderRadius: 5, marginTop: 4 },
+  tripConnector: { width: 2, height: 16, backgroundColor: T.border, marginLeft: 4, marginVertical: 2 },
+  tripRowLabel: { color: T.muted, fontSize: 11 },
+  tripRowVal: { color: T.text, fontSize: 14, fontWeight: '500', marginTop: 1 },
 
-  modalActions:        { flexDirection: 'row', gap: 12 },
-  rejectBtn:           { flex: 1, borderWidth: 1.5, borderColor: T.danger, borderRadius: T.rFull, paddingVertical: 15, alignItems: 'center' },
-  rejectText:          { color: T.danger, fontWeight: T.bold, fontSize: 15 },
-  acceptBtn:           { flex: 1, backgroundColor: T.teal, borderRadius: T.rFull, paddingVertical: 15, alignItems: 'center' },
-  acceptText:          { color: T.bg, fontWeight: T.xbold, fontSize: 15 },
+  distanceTag: { flexDirection: 'row', alignItems: 'center', gap: 4, marginBottom: 16 },
+  distanceTagText: { color: T.sub, fontSize: 13 },
+
+  modalActions: { flexDirection: 'row', gap: 12 },
+  rejectBtn: { flex: 1, borderWidth: 1.5, borderColor: T.danger, borderRadius: T.rFull, paddingVertical: 15, alignItems: 'center' },
+  rejectText: { color: T.danger, fontWeight: T.bold, fontSize: 15 },
+  acceptBtn: { flex: 1, backgroundColor: T.teal, borderRadius: T.rFull, paddingVertical: 15, alignItems: 'center' },
+  acceptText: { color: T.bg, fontWeight: T.xbold, fontSize: 15 },
 });
