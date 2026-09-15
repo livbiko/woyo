@@ -102,6 +102,7 @@ module.exports = withNetworkSecurity(withRemoveAdIdPermission({
       enabled: true,
       fallbackToCacheTimeout: 0,
       checkAutomatically: 'ON_LOAD',
+      url: 'https://u.expo.dev/cda8aa89-057a-48f2-843d-4e0d9a0f4e12',
     },
     runtimeVersion: { policy: 'appVersion' },
     splash: {
